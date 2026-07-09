@@ -1,4 +1,4 @@
-# Complete pages generator for CNBU-product-site5
+﻿# Complete pages generator for CNBU-product-site5
 # 27 clean files with correct index.html links
 
 # Global functions to generate layout
@@ -953,26 +953,1132 @@ BuildSolutionPage "D:\CNBU-product-site5\pages\solution\com-express-module\index
 
 # ─ AI HUB SUBPAGE ──────────────────────────────
 $raxBody = @"
-<section class="section"><div class="wrap fu"><div class="content-grid">
-  <div class="content-body">
-    <h2>Secure, Private Enterprise AI Intelligence</h2>
-    <p>RAXEL AI is an on-premises Retrieval-Augmented Generation (RAG) platform that allows teams to query massive internal document libraries with cited, reliable answers.</p>
-    <p>By running entirely on Senao GPU-accelerated server platforms, your data never leaves your facility. Perfect for legal, financial, and product engineering teams with strict compliance mandates.</p>
-    <h3>Why On-Premises RAG?</h3>
-    <p>Unlike public API models, RAXEL AI does not expose proprietary data to external cloud servers, eliminating the risk of corporate data leaks or compliance violations.</p>
+<style>
+.page-hero { display: none !important; }
+
+/* ── Split Section ────────────────────────── */
+.split-section {
+  padding: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.split-inner {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  min-height: 420px;
+  max-width: 100%;
+}
+.split-left {
+  padding: 56px 48px 56px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+}
+.split-eyebrow {display:none}
+.split-left h2 {
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  color: var(--navy);
+  margin: 0;
+}
+.split-right {
+  position: relative;
+  overflow: hidden;
+  background: #060e1e;
+  aspect-ratio: auto;
+}
+.split-right video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.split-right::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 140px;
+  z-index: 2;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,1)    0%,
+    rgba(255,255,255,0.96) 10%,
+    rgba(255,255,255,0.82) 28%,
+    rgba(255,255,255,0.55) 50%,
+    rgba(255,255,255,0.22) 72%,
+    rgba(255,255,255,0.05) 88%,
+    transparent            100%
+  );
+  pointer-events: none;
+}
+
+/* ── Use Case Cards (Flow Diagram Design) ─── */
+.usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 0;
+}
+.usecase-card {
+  background: #fff;
+  border: 1.5px solid #dde4ef;
+  border-radius: 14px;
+  padding: 22px 22px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.usecase-card:hover {
+  box-shadow: 0 8px 32px rgba(0,94,184,.10);
+  transform: translateY(-3px);
+}
+/* Card header with emoji + title */
+.uc-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.uc-card-icon { display: none; }
+.uc-card-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #005EB8;
+  letter-spacing: -.02em;
+  margin: 0;
+}
+.uc-card-desc {
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: #5a6d88;
+  margin: 0 0 14px;
+}
+/* Flow diagram */
+.uc-diagram {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  font-size: 11px;
+  min-height: 140px;
+}
+/* Column wrapper with label on top */
+.uc-diagram-col { display: flex; flex-direction: column; }
+/* Label row */
+.uc-diagram-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #8899b0;
+  margin-bottom: 6px;
+  text-align: center;
+}
+/* DATA SOURCES box */
+.uc-src-box {
+  flex: 1;
+  background: #eef4ff;
+  border: 1.5px solid #c5d8f5;
+  border-radius: 8px;
+  padding: 10px 11px;
+}
+.uc-src-box ul {
+  list-style: none; padding: 0; margin: 0;
+}
+.uc-src-box ul li {
+  font-size: 11px;
+  color: #3a4f6e;
+  padding: 2px 0;
+  line-height: 1.4;
+}
+/* Arrow between sections */
+.uc-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  color: #005EB8;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+  align-self: center;
+  margin-top: 18px;
+}
+/* RAXEL BOUNDARY dashed box */
+.uc-boundary-col { flex: 1.6; display: flex; flex-direction: column; }
+.uc-boundary-box {
+  flex: 1;
+  border: 2px dashed #005EB8;
+  border-radius: 8px;
+  padding: 8px 8px;
+  background: #f5f8ff;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+/* Engine blocks column */
+.uc-engines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+.uc-engine-block {
+  background: #005EB8;
+  border-radius: 5px;
+  padding: 5px 8px;
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.uc-engine-sub {
+  font-size: 9px;
+  font-weight: 400;
+  color: rgba(255,255,255,.8);
+  display: block;
+  margin-top: 1px;
+}
+/* inner arrow */
+.uc-inner-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  color: #005EB8;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+/* AI Response */
+.uc-response { flex: 1; }
+.uc-response-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #005EB8;
+  margin-bottom: 4px;
+}
+.uc-response ul {
+  list-style: none; padding: 0; margin: 0;
+}
+.uc-response ul li {
+  font-size: 10.5px;
+  color: #3a4f6e;
+  padding: 1.5px 0;
+  line-height: 1.35;
+}
+.uc-response ul li.hi { color: #d97706; font-weight: 600; }
+/* USERS box */
+.uc-users-box {
+  flex: 1;
+  background: #edfbf2;
+  border: 1.5px solid #a8d8b8;
+  border-radius: 8px;
+  padding: 10px 11px;
+}
+.uc-users-box ul {
+  list-style: none; padding: 0; margin: 0;
+}
+.uc-users-box ul li {
+  font-size: 11px;
+  color: #2d5a3d;
+  padding: 2px 0;
+  line-height: 1.4;
+}
+
+/* ── Feature Grid ─────────────────────────── */
+.feat-section {
+  padding: 72px 0;
+  background: var(--soft);
+}
+.feat-section .section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 36px;
+  display: block;
+}
+.feat-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.feat-card {
+  padding: 28px 32px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  transition: all .3s cubic-bezier(.4,0,.2,1);
+  position: relative;
+  overflow: hidden;
+}
+.feat-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #005EB8, #00c2e0);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.feat-card:hover { border-color: #005EB8; box-shadow: 0 0 0 1px rgba(0,94,184,.15), 0 20px 48px rgba(0,94,184,.12); transform: translateY(-5px); }
+.feat-card:hover::before { transform: scaleX(1); }
+.feat-card h4 { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+.feat-card p { font-size: 13px; line-height: 1.75; color: var(--muted); margin-bottom: 14px; }
+.feat-card ul { list-style: none; padding: 0; margin: 0; }
+.feat-card ul li {
+  font-size: 12.5px;
+  color: var(--muted);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+.feat-card ul li:last-child { border-bottom: none; }
+.feat-card ul li::before { content: "›"; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+
+/* ── Deploy Cards ──────────────────────────── */
+.deploy-section {
+  padding: 72px 0;
+  background: #fff;
+  border-top: 1px solid var(--line);
+}
+.deploy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.deploy-card {
+  padding: 28px 32px;
+  background: var(--soft);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  transition: all .3s cubic-bezier(.4,0,.2,1);
+  position: relative;
+  overflow: hidden;
+}
+.deploy-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #005EB8, #00c2e0);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.deploy-card:hover { border-color: #005EB8; box-shadow: 0 16px 40px rgba(0,94,184,.10); transform: translateY(-4px); }
+.deploy-card:hover::before { transform: scaleX(1); }
+.deploy-card h4 { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+.deploy-card p { font-size: 13px; line-height: 1.75; color: var(--muted); margin: 0; }
+
+/* ── Hardware Cards ────────────────────────── */
+.hw-section {
+  padding: 72px 0;
+  background: linear-gradient(180deg, #060e1e 0%, #0b1e38 100%);
+}
+.hw-section .section-title { color: #fff; margin-bottom: 12px; }
+.hw-section-sub { font-size: 16px; color: rgba(255,255,255,.6); margin-bottom: 40px; }
+.hw-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.hw-card {
+  padding: 28px 32px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  transition: background .2s;
+}
+.hw-card:hover { background: rgba(0,94,184,.08); }
+.hw-card h4 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 6px; letter-spacing: -.02em; }
+.hw-role { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: rgba(0,94,184,.9); margin-bottom: 12px; }
+.hw-desc { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.7; }
+
+@media (max-width: 900px) {
+  .split-inner { grid-template-columns: 1fr; }
+  .split-left  { padding: 48px 0 32px; }
+  .split-right { min-height: 260px; }
+  .split-right::before { display: none; }
+  .feat-grid-2, .usecase-grid, .deploy-grid { grid-template-columns: 1fr; }
+  .hw-grid { grid-template-columns: 1fr; }
+}
+
+/* ── RAXEL Hero Override ─────────────────── */
+.raxel-hero {
+  padding: 180px 0 171px;
+  min-height: 669px;
+  background: #060e1e;
+  border-bottom: none;
+  position: relative;
+  overflow: hidden;
+}
+/* Video background layer */
+.raxel-hero-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.raxel-hero-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Dark overlay for text readability */
+.raxel-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(6,14,30,.80) 0%, rgba(0,20,60,.50) 100%);
+  z-index: 1;
+}
+.raxel-hero .wrap {
+  position: relative;
+  z-index: 2;
+}
+.raxel-hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 820px;
+}
+/* double-line title */
+.raxel-h1 {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  color: #fff;
+  margin: 0;
+}
+.raxel-h1 .accent {
+  background: linear-gradient(90deg, #4da6ff 0%, #00c2e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+/* sub-titles */
+.raxel-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.raxel-sub-main {
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(255,255,255,.85);
+  letter-spacing: -.01em;
+}
+.raxel-sub-accent {
+  font-size: 16px;
+  color: rgba(255,255,255,.6);
+  font-style: italic;
+}
+/* keyword row */
+.raxel-keywords {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .02em;
+  margin-top: 4px;
+}
+/* Breadcrumb on dark bg */
+.raxel-hero .breadcrumb a { color: rgba(255,255,255,.7); }
+.raxel-hero .breadcrumb a:hover { color: #4da6ff; }
+.raxel-hero .breadcrumb .sep { color: rgba(255,255,255,.3); }
+.raxel-hero .breadcrumb > span:last-child { color: rgba(255,255,255,.9); }
+
+/* ── Raxel Video Section ──────────────────── */
+.raxel-video-section {
+  padding: 64px 0;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+.raxel-video-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.raxel-brand-logo {
+  display: block;
+  margin: 0 auto 20px;
+  height: 53px;
+  width: auto;
+  object-fit: contain;
+}
+.raxel-video-title {
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -.025em;
+  margin: 0 0 12px;
+}
+.raxel-video-sub {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.raxel-video-wrap {
+  width: calc(100% - 48px);
+  max-width: 1100px;
+  min-height: 360px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #060e1e;
+  box-shadow: 0 8px 48px rgba(0,94,184,.15);
+}
+.raxel-video-wrap video {
+  width: 100%;
+  height: auto;
+  min-height: 360px;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* ── Tab Section ───────────────────────────── */
+.tab-section {
+  padding: 80px 0 88px;
+  background: linear-gradient(180deg, #f7f9fc 0%, #fff 60%);
+  border-bottom: 1px solid var(--line);
+}
+.tab-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.tab-main-title {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -.025em;
+  margin: 0 0 12px;
+}
+.tab-main-desc {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+/* Tab pill bar */
+.tab-pills {
+  display: flex;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 5px;
+  gap: 4px;
+  margin-bottom: 36px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tab-pill {
+  flex: 1;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .22s cubic-bezier(.4,0,.2,1);
+  background: transparent;
+  color: var(--muted);
+  letter-spacing: .01em;
+  font-family: inherit;
+}
+.tab-pill.active {
+  background: #005EB8;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,94,184,.28);
+}
+.tab-pill:hover:not(.active) {
+  background: #fff;
+  color: var(--ink);
+}
+/* Tab panels */
+.tab-panel {
+  display: none;
+  animation: tabFadeIn .3s ease;
+}
+.tab-panel.active { display: block; }
+@keyframes tabFadeIn {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+/* Usecase grid inside tab */
+.tab-section .usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 0;
+}
+.tab-section .usecase-card {
+  padding: 28px 28px 24px;
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,.05);
+  position: relative;
+  overflow: hidden;
+  transition: all .3s cubic-bezier(.4,0,.2,1);
+}
+.tab-section .usecase-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #005EB8, #00c2e0);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.tab-section .usecase-card:hover {
+  border-color: #005EB8;
+  box-shadow: 0 12px 40px rgba(0,94,184,.12);
+  transform: translateY(-4px);
+}
+.tab-section .usecase-card:hover::before { transform: scaleX(1); }
+.tab-section .usecase-card h4 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 4px 0 10px;
+}
+.tab-section .usecase-card > p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+.tab-section .uc-flow {
+  background: #f4f7fb;
+  border: 1px solid #dce5ef;
+}
+.tab-section .uc-col-center {
+  background: rgba(0,94,184,.04);
+}
+.uc-tag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+/* ── Product Capabilities simple card ───────── */
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.cap-card {
+  background: #fff;
+  border: 1.5px solid #dde4ef;
+  border-radius: 14px;
+  padding: 28px 28px 26px;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.cap-card:hover {
+  box-shadow: 0 8px 32px rgba(0,94,184,.10);
+  transform: translateY(-3px);
+}
+.cap-card-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0b1e38;
+  letter-spacing: -.02em;
+  margin: 0 0 10px;
+  text-align: left;
+}
+.cap-card-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #2563a8;
+  margin: 0 0 18px;
+}
+.cap-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #eaeef5;
+  padding-top: 14px;
+}
+.cap-list li {
+  font-size: 13px;
+  color: #3a4f6e;
+  padding: 5px 0;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+}
+.cap-list li::before {
+  content: "›";
+  color: #005EB8;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+/* Feat card icon */
+.feat-icon-wrap {
+  font-size: 28px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+</style>
+
+<section class="raxel-hero">
+<!-- Video background -->
+<div class="raxel-hero-video-bg">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="../../../image/RAXELAI_HERO_c.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="raxel-hero-overlay"></div>
+<div class="wrap fu">
+  <nav class="breadcrumb">
+    <a href="../../../index.html">Home</a><span class="sep">›</span>
+    <a href="../../../pages/solutions/index.html">Solutions</a><span class="sep">›</span>
+    <span>RAXEL AI</span>
+  </nav>
+  <div class="raxel-hero-inner">
+    <h1 class="raxel-h1">
+      The Enterprise AI Platform<br>
+      <span class="accent">Built to Stay On-Premises</span>
+    </h1>
+    <div class="raxel-sub">
+      <p class="raxel-sub-main">Designed for mid-size enterprises &middot; Local deployment &middot; Full governance</p>
+      <p class="raxel-sub-accent">Your data. Your infrastructure. Your AI advantage.</p>
+    </div>
+    <p class="raxel-keywords">On-Premises &middot; Data Sovereignty &middot; Ready Out of the Box</p>
   </div>
-  <div>
-    <div class="sidebar-card">
-      <h4>System Specs</h4>
-      <ul>
-        <li>Supported Models: Llama 3, Mistral</li>
-        <li>Vector Store: pgvector, Qdrant</li>
-        <li>Hardware: GPU-accelerated</li>
-        <li>Format Support: PDF, DOCX, MD</li>
-      </ul>
+</div>
+</section>
+
+
+<!-- ════ VIDEO: Why Raxel ════ -->
+<section class="raxel-video-section">
+  <div class="wrap">
+    <div class="raxel-video-header fu">
+      <img src="../../../image/raxel-black.png" alt="RAXEL" class="raxel-brand-logo">
+      <h2 class="raxel-video-title">Why Raxel</h2>
+      <p class="raxel-video-sub">Your proprietary data is your competitive edge. Keep it that way.</p>
+    </div>
+    <div class="raxel-video-wrap">
+      <video autoplay muted loop playsinline preload="auto" style="width:100%;height:auto;display:block">
+        <source src="../../../image/raxel-hero.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
-</div></div></section>
+</section>
+
+<!-- ════ WHY RAXEL CARDS ════ -->
+<section class="section" style="padding:72px 0;background:#fff;border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="card-grid col3">
+      <div class="f-card fu d1">
+        <h3>Data Sovereignty</h3>
+        <p>All computation happens inside your infrastructure. Customer data, process records, and financial information never leave your firewall — fully compliant with data protection regulations.</p>
+      </div>
+      <div class="f-card fu d2">
+        <h3>Governance Depth</h3>
+        <p>Sensitive data classification, complete audit trails, SSO identity integration, and department-level access control — AI adoption that meets enterprise compliance standards.</p>
+      </div>
+      <div class="f-card fu d3">
+        <h3>Ready Out of the Box</h3>
+        <p>Hardware and software ship as an integrated solution. No large IT team required. Business users ask questions in natural language and get value from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════ TABBED: SOLVING ENTERPRISE PROBLEMS ════ -->
+<section class="tab-section">
+  <div class="wrap">
+    <div class="tab-header fu">
+      <h2 class="tab-main-title">Solving Real Enterprise Problems</h2>
+      <p class="tab-main-desc">From industry use cases to product capabilities — find the right entry point for your organization.</p>
+    </div>
+
+    <!-- Tab Pills -->
+    <div class="tab-pills" role="tablist">
+      <button class="tab-pill active" data-tab="usecases" role="tab" aria-selected="true">
+        Industry Use Cases
+      </button>
+      <button class="tab-pill" data-tab="capabilities" role="tab" aria-selected="false">
+        Product Capabilities
+      </button>
+    </div>
+
+    <!-- Panel: Industry Use Cases -->
+    <div class="tab-panel active" id="panel-usecases">
+      <div class="usecase-grid">
+
+        <!-- Smart Manufacturing -->
+        <div class="usecase-card">
+          <div class="uc-card-head">
+            <h4 class="uc-card-title">Smart Manufacturing</h4>
+          </div>
+          <p class="uc-card-desc">Decades of tribal knowledge, scattered manuals, and siloed production data — unified inside Raxel. Floor technicians get instant cited answers. Knowledge stays when people leave.</p>
+          <div class="uc-diagram">
+            <!-- DATA SOURCES -->
+            <div class="uc-diagram-col" style="flex:1">
+              <div class="uc-diagram-label">Data Sources</div>
+              <div class="uc-src-box">
+                <ul>
+                  <li>Equipment Manuals</li><li>Maintenance Logs</li>
+                  <li>Process SOPs</li><li>Quality Reports</li>
+                  <li>Production Data</li><li>Supplier Records</li>
+                </ul>
+              </div>
+            </div>
+            <div class="uc-arrow">→</div>
+            <!-- RAXEL BOUNDARY -->
+            <div class="uc-boundary-col">
+              <div class="uc-diagram-label">Raxel Boundary</div>
+              <div class="uc-boundary-box">
+                <div class="uc-engines">
+                  <div class="uc-engine-block">Knowledge Engine<span class="uc-engine-sub">Ingest · Index · Retrieve</span></div>
+                  <div class="uc-engine-block">AI Reasoning<span class="uc-engine-sub">Understand · Answer · Cite</span></div>
+                  <div class="uc-engine-block">Governance Layer<span class="uc-engine-sub">Permissions · Audit</span></div>
+                </div>
+                <div class="uc-inner-arrow">→</div>
+                <div class="uc-response">
+                  <div class="uc-response-label">AI Response</div>
+                  <ul>
+                    <li>Root cause answer</li><li>Cited source doc</li>
+                    <li>Defect trend</li><li>Traceability report</li>
+                    <li class="hi">Training guide</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="uc-arrow">→</div>
+            <!-- USERS -->
+            <div class="uc-diagram-col" style="flex:1">
+              <div class="uc-diagram-label">Users</div>
+              <div class="uc-users-box">
+                <ul>
+                  <li>Floor Technicians</li><li>Quality Engineers</li>
+                  <li>Process Managers</li><li>New Hires</li>
+                  <li>Procurement</li><li>Plant Managers</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Retail -->
+        <div class="usecase-card">
+          <div class="uc-card-head">
+            <h4 class="uc-card-title">Smart Retail</h4>
+          </div>
+          <p class="uc-card-desc">Store, e-commerce, inventory, and membership systems unified inside Raxel. Business users get data-driven answers without waiting for IT — customer data never touches the cloud.</p>
+          <div class="uc-diagram">
+            <div class="uc-diagram-col" style="flex:1">
+              <div class="uc-diagram-label">Data Sources</div>
+              <div class="uc-src-box">
+                <ul>
+                  <li>POS / Store Systems</li><li>E-Commerce Platform</li>
+                  <li>Inventory System</li><li>Membership DB</li>
+                  <li>Supplier / ERP</li><li>Promo Records</li>
+                </ul>
+              </div>
+            </div>
+            <div class="uc-arrow">→</div>
+            <div class="uc-boundary-col">
+              <div class="uc-diagram-label">Raxel Boundary</div>
+              <div class="uc-boundary-box">
+                <div class="uc-engines">
+                  <div class="uc-engine-block">Data Integration<span class="uc-engine-sub">Connect · Unify · Normalize</span></div>
+                  <div class="uc-engine-block">NL to Query<span class="uc-engine-sub">Parse · Execute · Visualize</span></div>
+                  <div class="uc-engine-block">Governance Layer<span class="uc-engine-sub">Permissions · Audit</span></div>
+                </div>
+                <div class="uc-inner-arrow">→</div>
+                <div class="uc-response">
+                  <div class="uc-response-label">AI Response</div>
+                  <ul>
+                    <li>SKU performance</li><li>Return rate analysis</li>
+                    <li>Promo effectiveness</li><li>Inventory forecast</li>
+                    <li class="hi">Trend charts</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="uc-arrow">→</div>
+            <div class="uc-diagram-col" style="flex:1">
+              <div class="uc-diagram-label">Users</div>
+              <div class="uc-users-box">
+                <ul>
+                  <li>Store Managers</li><li>Marketing Teams</li>
+                  <li>Buyers / Procurement</li><li>Regional Directors</li>
+                  <li>Operations Teams</li><li>Executives</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Office -->
+        <div class="usecase-card">
+          <div class="uc-card-head">
+            <h4 class="uc-card-title">Smart Office</h4>
+          </div>
+          <p class="uc-card-desc">Contracts, approvals, and meeting minutes consolidated into one queryable knowledge base. Employees get cited answers — sensitive documents never uploaded to external AI tools.</p>
+          <div class="uc-diagram">
+            <div class="uc-diagram-col" style="flex:1">
+              <div class="uc-diagram-label">Data Sources</div>
+              <div class="uc-src-box">
+                <ul>
+                  <li>Contracts / NAS</li><li>Approvals / ERP</li>
+                  <li>Meeting Minutes</li><li>Reports / Policies</li>
+                  <li>HR Documents</li><li>Email / Decisions</li>
+                </ul>
+              </div>
+            </div>
+            <div class="uc-arrow">→</div>
+            <div class="uc-boundary-col">
+              <div class="uc-diagram-label">Raxel Boundary</div>
+              <div class="uc-boundary-box">
+                <div class="uc-engines">
+                  <div class="uc-engine-block">Document Intelligence<span class="uc-engine-sub">Parse · Chunk · Embed</span></div>
+                  <div class="uc-engine-block">Semantic Retrieval<span class="uc-engine-sub">Search · Rank · Cite</span></div>
+                  <div class="uc-engine-block">Governance Layer<span class="uc-engine-sub">SSO · Role Access · Audit</span></div>
+                </div>
+                <div class="uc-inner-arrow">→</div>
+                <div class="uc-response">
+                  <div class="uc-response-label">AI Response</div>
+                  <ul>
+                    <li>Contract clause answer</li><li>Cross-doc comparison</li>
+                    <li>Decision summary</li><li class="hi">Policy lookup</li>
+                    <li class="hi">Source cited always</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="uc-arrow">→</div>
+            <div class="uc-diagram-col" style="flex:1">
+              <div class="uc-diagram-label">Users</div>
+              <div class="uc-users-box">
+                <ul>
+                  <li>Legal / Compliance</li><li>Finance Teams</li>
+                  <li>HR Departments</li><li>All Staff</li>
+                  <li>Procurement</li><li>Executives</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Security -->
+        <div class="usecase-card">
+          <div class="uc-card-head">
+            <h4 class="uc-card-title">Smart Security</h4>
+          </div>
+          <p class="uc-card-desc">All logs analyzed inside the firewall. Threats surfaced before damage is done, incidents reconstructed in minutes — security data never sent to an external platform for analysis.</p>
+          <div class="uc-diagram">
+            <div class="uc-diagram-col" style="flex:1">
+              <div class="uc-diagram-label">Data Sources</div>
+              <div class="uc-src-box">
+                <ul>
+                  <li>System / App Logs</li><li>Access Records</li>
+                  <li>Network Traffic</li><li>Endpoint Alerts</li>
+                  <li>Firewall Events</li><li>Auth / IAM Logs</li>
+                </ul>
+              </div>
+            </div>
+            <div class="uc-arrow">→</div>
+            <div class="uc-boundary-col">
+              <div class="uc-diagram-label">Raxel Boundary</div>
+              <div class="uc-boundary-box">
+                <div class="uc-engines">
+                  <div class="uc-engine-block">Log Aggregation<span class="uc-engine-sub">Collect · Normalize · Index</span></div>
+                  <div class="uc-engine-block">Anomaly Detection<span class="uc-engine-sub">Pattern · Score · Alert</span></div>
+                  <div class="uc-engine-block">Governance Layer<span class="uc-engine-sub">Audit · Compliance · Report</span></div>
+                </div>
+                <div class="uc-inner-arrow">→</div>
+                <div class="uc-response">
+                  <div class="uc-response-label">AI Response</div>
+                  <ul>
+                    <li>Daily risk summary</li><li class="hi">Anomalous accounts</li>
+                    <li>Incident timeline</li><li>Threat patterns</li>
+                    <li class="hi">Compliance report</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="uc-arrow">→</div>
+            <div class="uc-diagram-col" style="flex:1">
+              <div class="uc-diagram-label">Users</div>
+              <div class="uc-users-box">
+                <ul>
+                  <li>IT Managers</li><li>Security Teams</li>
+                  <li>Compliance Officers</li><li>Risk Management</li>
+                  <li>Auditors</li><li>Executives</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /usecase-grid -->
+    </div><!-- /panel-usecases -->
+
+    <!-- Panel: Product Capabilities -->
+
+    <div class="tab-panel" id="panel-capabilities">
+      <div class="cap-grid">
+
+        <!-- Document Intelligence -->
+        <div class="cap-card">
+          <h4 class="cap-card-title">Document Intelligence</h4>
+          <p class="cap-card-desc">Transform unstructured enterprise content — PDFs, Word files, scanned documents, presentations — into a queryable, citable, and comparable knowledge resource.</p>
+          <ul class="cap-list">
+            <li>Multi-format parsing: PDF, Word, Excel, scanned images</li>
+            <li>Semantic search — find relevant content without exact keywords</li>
+            <li>Cross-document comparison</li>
+            <li>Source citation on every answer — no hallucinated content</li>
+            <li>Role-based access control by department</li>
+          </ul>
+        </div>
+
+        <!-- IT Operations -->
+        <div class="cap-card">
+          <h4 class="cap-card-title">IT Operations</h4>
+          <p class="cap-card-desc">Turn the flood of daily logs, alerts, and tickets from noise into actionable intelligence — protecting more with less manual effort.</p>
+          <ul class="cap-list">
+            <li>Multi-source log aggregation and semantic analysis</li>
+            <li>Anomaly pattern recognition with proactive alerts</li>
+            <li>Natural language log queries</li>
+            <li>Incident timeline reconstruction for forensic investigation</li>
+            <li>Auto-generated compliance reports</li>
+          </ul>
+        </div>
+
+        <!-- Enterprise Knowledge -->
+        <div class="cap-card">
+          <h4 class="cap-card-title">Enterprise Knowledge</h4>
+          <p class="cap-card-desc">Organizational knowledge shouldn't live only in people's heads. Make every document, every decision, and every lesson learned available to whoever needs it next.</p>
+          <ul class="cap-list">
+            <li>Unified knowledge ingestion from documents and systems</li>
+            <li>Mixed retrieval across structured and unstructured content</li>
+            <li>Version tracking — always the most current information</li>
+            <li>Query audit trail — who asked what, and when</li>
+            <li>Cross-language support for mixed environments</li>
+          </ul>
+        </div>
+
+        <!-- Data Insights -->
+        <div class="cap-card">
+          <h4 class="cap-card-title">Data Insights</h4>
+          <p class="cap-card-desc">Structured enterprise data shouldn't be accessible only to those who can write SQL. Enable every business user to talk directly to their data.</p>
+          <ul class="cap-list">
+            <li>Natural language to query — ask in plain language</li>
+            <li>Cross-source integration: ERP, CRM, MES, and more</li>
+            <li>Auto-generated visualizations on demand</li>
+            <li>Business language mapping — no field names needed</li>
+            <li>Role-based query permissions</li>
+          </ul>
+        </div>
+
+      </div><!-- /cap-grid -->
+    </div><!-- /panel-capabilities -->
+
+  </div>
+</section>
+
+
+<!-- ════ DEPLOYMENT OPTIONS ════ -->
+<section class="deploy-section">
+  <div class="wrap">
+    <h2 class="section-title fu">Flexible Deployment for Every Scale</h2>
+    <p class="section-desc fu">From a single site to a multi-branch federation, Raxel adapts to your infrastructure.</p>
+    <div class="deploy-grid">
+      <div class="deploy-card fu d1">
+        <h4>Federated Deployment</h4>
+        <p>The SR810 at headquarters serves as the central knowledge hub, while SR710 units at branch locations handle local computation. Each site processes data on-premises; knowledge is shared across locations within authorized boundaries.</p>
+      </div>
+      <div class="deploy-card fu d2">
+        <h4>Standalone Local Deployment</h4>
+        <p>Ideal for single-site or departmental rollouts. Full functionality runs within your internal environment with no external dependencies. Operations continue even without internet connectivity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════ HARDWARE PRODUCT LINE ════ -->
+<section class="hw-section">
+  <div class="wrap">
+    <h2 class="section-title fu">Hardware Product Line</h2>
+    <p class="hw-section-sub fu">Integrated hardware and software — ship together, deploy immediately.</p>
+    <div class="hw-grid">
+      <div class="hw-card fu d1">
+        <h4>SE210</h4>
+        <div class="hw-role">AI Security Appliance</div>
+        <div class="hw-desc">Edge AI firewall for traffic monitoring and threat detection. Evolving as a standalone AI security product line.</div>
+      </div>
+      <div class="hw-card fu d2">
+        <h4>SR710</h4>
+        <div class="hw-role">Primary Compute Platform</div>
+        <div class="hw-desc">GPU-accelerated, full-featured platform for mid-size enterprise deployments. Also functions as a branch node in federated architectures.</div>
+      </div>
+      <div class="hw-card fu d3">
+        <h4>SR810</h4>
+        <div class="hw-role">Enterprise Knowledge Hub</div>
+        <div class="hw-desc">The central node in federated deployments. Manages cross-site knowledge synchronization and access policies. Designed for headquarters deployment.</div>
+      </div>
+      <div class="hw-card fu d4">
+        <h4>AI Box</h4>
+        <div class="hw-role">Entry-Level Solution</div>
+        <div class="hw-desc">Ideal for small-team deployments or proof-of-concept evaluations. Single-unit setup, fast onboarding, low upfront cost.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    </div>
+  </div>
+</section>
+
+
+<script>
+// Tab switching
+(function(){
+  var pills = document.querySelectorAll('.tab-pill');
+  pills.forEach(function(pill){
+    pill.addEventListener('click', function(){
+      var target = pill.getAttribute('data-tab');
+      // Update pills
+      pills.forEach(function(p){ p.classList.remove('active'); p.setAttribute('aria-selected','false'); });
+      pill.classList.add('active'); pill.setAttribute('aria-selected','true');
+      // Update panels
+      document.querySelectorAll('.tab-panel').forEach(function(panel){ panel.classList.remove('active'); });
+      var targetPanel = document.getElementById('panel-'+target);
+      if(targetPanel){ targetPanel.classList.add('active'); }
+    });
+  });
+})();
+
+</script>
 "@
 BuildPage "D:\CNBU-product-site5\pages\ai-hub\raxel-ai\index.html" "RAXEL AI" 3 @("AI Hub", "pages/ai-hub/index.html", "RAXEL AI", "") "AI Hub &middot; Platform" "RAXEL AI Platform" "On-premises enterprise RAG platform for secure, private data querying with full citation." $raxBody
 
@@ -1268,6 +2374,7 @@ $faqSubBody = @"
 BuildPage "D:\CNBU-product-site5\pages\support\faq\index.html" "FAQ" 3 @("Support", "pages/support/index.html", "FAQ", "") "Support &middot; FAQ" "Frequently Asked Questions" "Common questions about our products, ordering, and technical support." $faqSubBody
 
 Write-Host "All 27 pages generated successfully"
+
 
 
 
