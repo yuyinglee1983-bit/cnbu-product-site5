@@ -683,8 +683,8 @@ $aboutPresenceBody = @"
   <div class="wrap fu">
     <div style="margin-bottom: 48px;">
       <h2 style="font-size: 31px; font-weight:800; color:var(--navy); margin-bottom:16px;">Global Coverage Map</h2>
-      <div style="background:#eaeff5; border-radius:12px; padding:24px; text-align:center; border:1px solid var(--line);">
-        <img src="https://statics.senaonetworks.com/wp-content/uploads/2025/08/29152816/senao-map-2025_en-1.png" alt="Senao Networks Global Presence Map" style="max-width:100%; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,.08); margin:0 auto;">
+      <div style="text-align:center;">
+        <img src="https://statics.senaonetworks.com/wp-content/uploads/2025/08/29152816/senao-map-2025_en-1.png" alt="Senao Networks Global Presence Map" style="max-width:100%; margin:0 auto;">
       </div>
     </div>
     <div class="content-grid">
