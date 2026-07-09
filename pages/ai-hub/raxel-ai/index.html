@@ -402,10 +402,12 @@
 /* ── Hardware Cards ────────────────────────── */
 .hw-section {
   padding: 72px 0;
-  background: linear-gradient(180deg, #060e1e 0%, #0b1e38 100%);
+  background: #f4f7f9;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
-.hw-section .section-title { color: #fff; margin-bottom: 12px; }
-.hw-section-sub { font-size: 16px; color: rgba(255,255,255,.6); margin-bottom: 40px; }
+.hw-section .section-title { color: var(--navy); margin-bottom: 12px; }
+.hw-section-sub { font-size: 16px; color: var(--muted); margin-bottom: 40px; }
 .hw-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -413,15 +415,19 @@
 }
 .hw-card {
   padding: 28px 32px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
+  background: #fff;
+  border: 1.5px solid var(--line);
   border-radius: 12px;
-  transition: background .2s;
+  transition: all .25s ease;
 }
-.hw-card:hover { background: rgba(0,94,184,.08); }
-.hw-card h4 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 6px; letter-spacing: -.02em; }
-.hw-role { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: rgba(0,94,184,.9); margin-bottom: 12px; }
-.hw-desc { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.7; }
+.hw-card:hover { 
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,94,184,.10);
+  border-color: var(--blue);
+}
+.hw-card h4 { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 6px; letter-spacing: -.02em; }
+.hw-role { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+.hw-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
 
 @media (max-width: 900px) {
   .split-inner { grid-template-columns: 1fr; }
