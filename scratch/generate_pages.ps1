@@ -1315,7 +1315,7 @@ $raxBody = @"
 }
 
 /* ── RAXEL Hero Override ─────────────────── */
-.f-card h3 { font-size: 44px !important; }
+.f-card h3 { font-size: 36px !important; }
 .f-card p { font-size: 20px !important; }
 
 .raxel-hero {
