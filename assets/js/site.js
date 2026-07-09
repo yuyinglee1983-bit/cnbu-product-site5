@@ -65,15 +65,30 @@ function buildHeader() {
   if (!header) return;
 
   const navHTML = NAV.map(item => {
-    const dropHTML = item.children.map(c =>
-      `<a class="drop-link" href="${root}${c.href}">${c.label}</a>`
-    ).join('');
+    const defaultChild = item.children && item.children[0] ? item.children[0] : { label: item.label, href: item.href };
+    const dropHTML = item.children ? item.children.map((c, idx) =>
+      `<a class="mega-menu-link${idx === 0 ? ' active' : ''}" href="${root}${c.href}" data-href="${root}${c.href}" data-label="${c.label}">${c.label}</a>`
+    ).join('') : '';
+
     return `
       <li class="nav-item">
         <a class="nav-link" href="${root}${item.href}">${item.label}</a>
+        ${item.children && item.children.length > 0 ? `
         <div class="drop-menu">
-          <div class="drop-menu-inner">${dropHTML}</div>
+          <div class="drop-menu-inner mega-menu-grid">
+            <div class="mega-menu-left">
+              ${dropHTML}
+            </div>
+            <div class="mega-menu-right">
+              <div class="mega-image-placeholder">
+                <a href="${root}${defaultChild.href}" class="mega-featured-link">
+                  <span class="mega-featured-title">${defaultChild.label} Solution &rsaquo;</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+        ` : ''}
       </li>`;
   }).join('');
 
@@ -113,41 +128,122 @@ function buildHeader() {
     s.id = 'hd-style';
     s.textContent = `
       #site-header { height:auto; background:#ffffff; border-bottom:1px solid var(--line); }
-      .hd-inner { display:flex; align-items:center; width:100%; padding-top:0; padding-bottom:0; height:72px; }
+      .hd-inner { display:flex; align-items:center; width:100%; padding-top:0; padding-bottom:0; height:72px; position:relative; }
       .hd-logo { display:flex; align-items:center; margin-left:-90px; }
       .hd-nav { margin-left:auto; margin-right:56px; }
       .nav-list { list-style:none; display:flex; gap:28px; }
-      .nav-item { position:relative; }
-      .nav-link { display:flex; align-items:center; padding:8px 0; font-size:16px; font-weight:700; color:var(--navy); transition:color .2s; cursor:pointer; }
+      .nav-item { position:static; }
+      .nav-link {
+        display:flex;
+        align-items:center;
+        height:72px;
+        font-size:16px;
+        font-weight:700;
+        color:var(--navy);
+        transition:color .2s;
+        cursor:pointer;
+        position: relative;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: var(--blue);
+        transform: scaleX(0);
+        transition: transform 0.2s ease;
+      }
+      .nav-link:hover::after, .nav-link.active::after {
+        transform: scaleX(1);
+      }
       .nav-link:hover, .nav-link.active { color:var(--blue); }
       .drop-menu {
         opacity: 0;
         visibility: hidden;
-        transform: translateY(8px);
-        transition: opacity 0.2s cubic-bezier(0.4,0,0.2,1), transform 0.2s cubic-bezier(0.4,0,0.2,1), visibility 0.2s;
+        transform: translateX(-50%) translateY(8px);
+        transition: opacity 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1), visibility 0.25s;
         position: absolute;
         top: 100%;
-        left: 0;
+        left: 50%;
         padding-top: 12px;
-        min-width: 220px;
         z-index: 200;
         pointer-events: none;
       }
       .drop-menu.active {
         opacity: 1;
         visibility: visible;
-        transform: translateY(0);
+        transform: translateX(-50%) translateY(0);
         pointer-events: auto;
       }
-      .drop-menu-inner {
+      .mega-menu-grid {
+        display: grid;
+        grid-template-columns: 260px 380px;
+        min-height: 340px;
         background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 12px 40px rgba(0,50,120,.18);
-        padding: 10px 6px;
-        border: 1px solid var(--line);
+        border-radius: 0;
+        box-shadow: 0 16px 48px rgba(0,30,80,.16);
+        overflow: hidden;
+        border: 1px solid #e4e8f0;
       }
-      .drop-link { display:block; padding:9px 16px; font-size:15px; font-weight:500; color:#2a3550; border-radius:7px; transition:background .18s,color .18s; }
-      .drop-link:hover { background:rgba(0,94,184,.08); color:var(--blue); }
+      .mega-menu-left {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        background: #fff;
+      }
+      .mega-menu-link {
+        display: block;
+        padding: 10px 14px;
+        font-size: 15px;
+        font-weight: 500;
+        color: #4a5568;
+        border-radius: 8px;
+        transition: all .2s ease;
+        text-decoration: none;
+        text-align: left;
+      }
+      .mega-menu-link:hover, .mega-menu-link.active {
+        background: rgba(0, 94, 184, 0.06);
+        color: #005EB8;
+        font-weight: 600;
+      }
+      .mega-menu-right {
+        background: #f1f5f9;
+        padding: 12px;
+        display: flex;
+        align-items: stretch;
+      }
+      .mega-image-placeholder {
+        flex: 1;
+        background: #cccccc;
+        border-radius: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+        transition: background-color 0.2s ease;
+      }
+      .mega-image-placeholder:hover {
+        background: #b3b3b3;
+      }
+      .mega-featured-link {
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        z-index: 2;
+        width: 100%;
+        text-align: left;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+      .mega-featured-link:hover {
+        color: #e0f2fe;
+      }
       .hd-actions { display:flex; align-items:center; gap:24px; }
       .hd-search-wrapper { position:relative; width:40px; height:40px; }
       .hd-search-container {
@@ -225,6 +321,24 @@ function initNavbarDropdowns() {
 
     item.addEventListener('mouseenter', showMenu);
     item.addEventListener('mouseleave', hideMenu);
+
+    // Interactive Hover on Left Links to Update Right Details
+    const leftLinks = menu.querySelectorAll('.mega-menu-link');
+    const featuredLink = menu.querySelector('.mega-featured-link');
+    const featuredTitle = menu.querySelector('.mega-featured-title');
+
+    leftLinks.forEach(leftLink => {
+      leftLink.addEventListener('mouseenter', () => {
+        leftLinks.forEach(l => l.classList.remove('active'));
+        leftLink.classList.add('active');
+        if (featuredLink) {
+          featuredLink.setAttribute('href', leftLink.getAttribute('data-href'));
+        }
+        if (featuredTitle) {
+          featuredTitle.innerHTML = `${leftLink.getAttribute('data-label')} Solution &rsaquo;`;
+        }
+      });
+    });
   });
 }
 
@@ -250,7 +364,7 @@ function buildFooter() {
               <h4 style="font-size:16px;font-weight:700;color:#005EB8;margin-bottom:18px">${sec.label}</h4>
               <ul style="list-style:none">
                 ${sec.children.map(c =>
-                  `<li style="margin-bottom:12px"><a href="${root}${c.href}" style="font-size:14px;color:#2a3550;line-height:1.5;transition:color .2s" onmouseover="this.style.color='#005EB8'" onmouseout="this.style.color='#2a3550'">${c.label}</a></li>`
+                  `<li style="padding-bottom:14px"><a href="${root}${c.href}" style="font-size:14px;color:#2a3550;line-height:1.65;display:block;white-space:nowrap;transition:color .2s" onmouseover="this.style.color='#005EB8'" onmouseout="this.style.color='#2a3550'">${c.label}</a></li>`
                 ).join('')}
               </ul>
             </div>`).join('')}
