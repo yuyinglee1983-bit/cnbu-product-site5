@@ -1315,6 +1315,9 @@ $raxBody = @"
 }
 
 /* ── RAXEL Hero Override ─────────────────── */
+.f-card h3 { font-size: 44px !important; }
+.f-card p { font-size: 20px !important; }
+
 .raxel-hero {
   padding: 180px 0 171px;
   min-height: 669px;
@@ -1425,7 +1428,7 @@ $raxBody = @"
   margin: 0 0 12px;
 }
 .raxel-video-sub {
-  font-size: 17px;
+  font-size: 20px;
   color: var(--muted);
   max-width: 560px;
   margin: 0 auto;
