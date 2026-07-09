@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -59,6 +59,40 @@
 .ci-item p{font-size: 16px;color:var(--muted);line-height:1.6}
 .contact-grid{display:grid;grid-template-columns:3fr 2fr;gap:56px;align-items:start}
 @media(max-width:860px){.content-grid{grid-template-columns:1fr}.stat-row{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}}
+
+/* ── Home Services Style Injection ── */
+.home-services { padding: 80px 0; background: #1e2024; }
+.home-services .wrap { max-width: 1380px; }
+.home-services .section-title { font-size: 44px; font-weight: 800; color: #fff; margin-bottom: 40px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.srv-card {
+  position: relative; aspect-ratio: 16/10; border-radius: 12px; overflow: hidden; text-decoration: none; display: block;
+}
+.srv-card .img-wrap { position: absolute; inset: 0; }
+.srv-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.srv-card:hover .img-wrap img { transform: scale(1.05); }
+.srv-card .overlay-base {
+  position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
+  display: flex; align-items: flex-end; padding: 28px; transition: opacity 0.3s;
+}
+.srv-card .overlay-base h3 { font-size: 22px; font-weight: 800; color: #fff; margin: 0; }
+.srv-card .overlay-hover {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
+  background: rgba(10, 15, 25, 0.95); padding: 28px;
+  display: flex; flex-direction: column; transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.srv-card:hover .overlay-hover { transform: translateY(0); }
+.srv-card:hover .overlay-base { opacity: 0; }
+.srv-card .overlay-hover h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+.srv-card .overlay-hover p { font-size: 16px; color: #b3b8c2; line-height: 1.6; margin-bottom: 16px; }
+.srv-card .overlay-hover .explore { font-size: 16px; font-weight: 600; color: var(--cyan); margin-top: auto; }
+@media(max-width:960px) {
+  .services-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media(max-width:640px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body data-root="../../">
@@ -71,27 +105,46 @@
     <p class="page-desc">End-to-end design, testing, and manufacturing services to bring your product to market faster.</p>
   </div>
 </section>
-<section class="section">
-  <div class="wrap">
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:16px;">
-      <a class="feat-box fu" href="./laboratory/index.html">
-        <div class="fi">🔬</div>
-        <h3>Laboratory</h3>
-        <p>Testing and validation labs for product certification, compliance, and performance benchmarking.</p>
-        <span style="color:var(--blue); font-size: 16px; font-weight:700; margin-top:14px; display:inline-block;">Learn More &rarr;</span>
+<section class="home-services">
+  <div class="wrap fu">
+    <div class="services-grid">
+      
+      <a href="./laboratory/index.html" class="srv-card">
+        <div class="img-wrap"><img src="../../assets/img/home/services-1.jpg" alt="Laboratory" loading="lazy"></div>
+        <div class="overlay-base">
+          <h3>Laboratory</h3>
+        </div>
+        <div class="overlay-hover">
+          <h3>Laboratory</h3>
+          <p>Comprehensive testing and compliance certification facilities.</p>
+          <span class="explore">Explore &rarr;</span>
+        </div>
       </a>
-      <a class="feat-box fu" href="./technology/index.html">
-        <div class="fi">💡</div>
-        <h3>Technology</h3>
-        <p>R&D and technology development services including firmware, BIOS, and system-level integration.</p>
-        <span style="color:var(--blue); font-size: 16px; font-weight:700; margin-top:14px; display:inline-block;">Learn More &rarr;</span>
+
+      <a href="./technology/index.html" class="srv-card">
+        <div class="img-wrap"><img src="../../assets/img/home/services-2.jpg" alt="Technology" loading="lazy"></div>
+        <div class="overlay-base">
+          <h3>Technology</h3>
+        </div>
+        <div class="overlay-hover">
+          <h3>Technology</h3>
+          <p>Advanced engineering and hardware design capabilities.</p>
+          <span class="explore">Explore &rarr;</span>
+        </div>
       </a>
-      <a class="feat-box fu" href="./manufacturing/index.html">
-        <div class="fi">🏭</div>
-        <h3>Manufacturing</h3>
-        <p>SMT automated production lines with 6-Sigma quality standards and 72-hour burn-in testing.</p>
-        <span style="color:var(--blue); font-size: 16px; font-weight:700; margin-top:14px; display:inline-block;">Learn More &rarr;</span>
+
+      <a href="./manufacturing/index.html" class="srv-card">
+        <div class="img-wrap"><img src="../../assets/img/home/services-3.jpg" alt="Manufacturing" loading="lazy"></div>
+        <div class="overlay-base">
+          <h3>Manufacturing</h3>
+        </div>
+        <div class="overlay-hover">
+          <h3>Manufacturing</h3>
+          <p>Global manufacturing operations with stringent quality control.</p>
+          <span class="explore">Explore &rarr;</span>
+        </div>
       </a>
+
     </div>
   </div>
 </section>

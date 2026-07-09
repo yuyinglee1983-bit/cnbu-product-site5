@@ -14,12 +14,55 @@ const NAV = [
   {
     label: 'Solution', href: 'pages/solution/index.html',
     children: [
-      { label: 'Server',              href: 'pages/solution/server/index.html' },
-      { label: 'Edge Server',         href: 'pages/solution/edge-server/index.html' },
-      { label: 'SmartNIC',            href: 'pages/solution/smartnic/index.html' },
-      { label: 'Network Appliance',   href: 'pages/solution/network-appliance/index.html' },
-      { label: 'Data Center Switch',  href: 'pages/solution/data-center-switch/index.html' },
-      { label: 'COM Express Module',  href: 'pages/solution/com-express-module/index.html' },
+      {
+        label: 'Server',
+        href: 'pages/solution/server/index.html',
+        items: [
+          { label: 'SR610', href: 'pages/solution/server/sr610/index.html' },
+          { label: 'SR710', href: 'pages/solution/server/sr710/index.html' },
+          { label: 'SR810', href: 'pages/solution/server/sr810/index.html' }
+        ]
+      },
+      {
+        label: 'Edge Server',
+        href: 'pages/solution/edge-server/index.html',
+        items: [
+          { label: 'SE110', href: 'pages/solution/edge-server/se110/index.html' },
+          { label: 'SE210', href: 'pages/solution/edge-server/se210/index.html' }
+        ]
+      },
+      {
+        label: 'SmartNIC',
+        href: 'pages/solution/smartnic/index.html',
+        items: [
+          { label: 'SX904', href: 'pages/solution/smartnic/sx904/index.html' },
+          { label: 'SX906', href: 'pages/solution/smartnic/sx906/index.html' }
+        ]
+      },
+      {
+        label: 'Data Center Switch',
+        href: 'pages/solution/data-center-switch/index.html',
+        items: [
+          { label: 'SND Series', href: 'pages/solution/data-center-switch/snd-series/index.html' }
+        ]
+      },
+      {
+        label: 'Edge Appliance',
+        href: 'pages/solution/edge-appliance/index.html',
+        items: [
+          { label: 'SC9435B', href: 'pages/solution/edge-appliance/sc9435b/index.html' },
+          { label: 'SA9832b', href: 'pages/solution/edge-appliance/sa9832b/index.html' },
+          { label: 'Edge SCM', href: 'pages/solution/edge-appliance/edge-scm/index.html' }
+        ]
+      },
+      {
+        label: 'COM Express',
+        href: 'pages/solution/com-express/index.html',
+        items: [
+          { label: 'COM7000', href: 'pages/solution/com-express/com7000/index.html' },
+          { label: 'CME5100', href: 'pages/solution/com-express/cme5100/index.html' }
+        ]
+      }
     ]
   },
   {
@@ -66,9 +109,27 @@ function buildHeader() {
 
   const navHTML = NAV.map(item => {
     const defaultChild = item.children && item.children[0] ? item.children[0] : { label: item.label, href: item.href };
-    const dropHTML = item.children ? item.children.map((c, idx) =>
-      `<a class="mega-menu-link${idx === 0 ? ' active' : ''}" href="${root}${c.href}" data-href="${root}${c.href}" data-label="${c.label}">${c.label}</a>`
-    ).join('') : '';
+    const dropHTML = item.children ? item.children.map((c, idx) => {
+      const itemsAttr = c.items ? ` data-items='${JSON.stringify(c.items)}'` : '';
+      return `<a class="mega-menu-link${idx === 0 ? ' active' : ''}" href="${root}${c.href}" data-href="${root}${c.href}" data-label="${c.label}"${itemsAttr}>${c.label}</a>`;
+    }).join('') : '';
+
+    let rightContent = '';
+    if (defaultChild.items) {
+      const pillsHTML = defaultChild.items.map(sub =>
+        `<a href="${root}${sub.href}" class="mega-pill-btn">${sub.label}</a>`
+      ).join('');
+      rightContent = `
+        <div class="mega-pills-container">
+          <div class="mega-pills-title">${defaultChild.label}</div>
+          <div class="mega-pills-grid">${pillsHTML}</div>
+        </div>`;
+    } else {
+      rightContent = `
+        <a href="${root}${defaultChild.href}" class="mega-featured-link">
+          <span class="mega-featured-title">${defaultChild.label} Solution &rsaquo;</span>
+        </a>`;
+    }
 
     return `
       <li class="nav-item">
@@ -81,9 +142,7 @@ function buildHeader() {
             </div>
             <div class="mega-menu-right">
               <div class="mega-image-placeholder">
-                <a href="${root}${defaultChild.href}" class="mega-featured-link">
-                  <span class="mega-featured-title">${defaultChild.label} Solution &rsaquo;</span>
-                </a>
+                ${rightContent}
               </div>
             </div>
           </div>
@@ -244,6 +303,49 @@ function buildHeader() {
       .mega-featured-link:hover {
         color: #e0f2fe;
       }
+      .mega-pills-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-self: flex-start;
+      }
+      .mega-pills-title {
+        font-size: 15px;
+        font-weight: 800;
+        color: #0b1e38;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        border-bottom: 1.5px solid rgba(0,0,0,0.1);
+        padding-bottom: 8px;
+        text-align: left;
+      }
+      .mega-pills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .mega-pill-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 14px;
+        background: #ffffff;
+        border: 1px solid #d1d5da;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #0b1e38;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      }
+      .mega-pill-btn:hover {
+        border-color: var(--blue);
+        color: var(--blue);
+        box-shadow: 0 4px 8px rgba(0,94,184,0.12);
+        transform: translateY(-1px);
+      }
       .hd-actions { display:flex; align-items:center; gap:24px; }
       .hd-search-wrapper { position:relative; width:40px; height:40px; }
       .hd-search-container {
@@ -289,6 +391,7 @@ function buildHeader() {
 
 /* ─ DROPDOWN MANAGER ────────────────────────────── */
 function initNavbarDropdowns() {
+  const root = getRoot();
   const items = document.querySelectorAll('.nav-item');
   items.forEach(item => {
     const link = item.querySelector('.nav-link');
@@ -324,18 +427,33 @@ function initNavbarDropdowns() {
 
     // Interactive Hover on Left Links to Update Right Details
     const leftLinks = menu.querySelectorAll('.mega-menu-link');
-    const featuredLink = menu.querySelector('.mega-featured-link');
-    const featuredTitle = menu.querySelector('.mega-featured-title');
-
     leftLinks.forEach(leftLink => {
       leftLink.addEventListener('mouseenter', () => {
         leftLinks.forEach(l => l.classList.remove('active'));
         leftLink.classList.add('active');
-        if (featuredLink) {
-          featuredLink.setAttribute('href', leftLink.getAttribute('data-href'));
-        }
-        if (featuredTitle) {
-          featuredTitle.innerHTML = `${leftLink.getAttribute('data-label')} Solution &rsaquo;`;
+        
+        const itemsData = leftLink.getAttribute('data-items');
+        const label = leftLink.getAttribute('data-label');
+        const href = leftLink.getAttribute('data-href');
+        
+        const placeholder = menu.querySelector('.mega-image-placeholder');
+        if (placeholder) {
+          if (itemsData) {
+            const subItems = JSON.parse(itemsData);
+            const pillsHTML = subItems.map(sub =>
+              `<a href="${root}${sub.href}" class="mega-pill-btn">${sub.label}</a>`
+            ).join('');
+            placeholder.innerHTML = `
+              <div class="mega-pills-container">
+                <div class="mega-pills-title">${label}</div>
+                <div class="mega-pills-grid">${pillsHTML}</div>
+              </div>`;
+          } else {
+            placeholder.innerHTML = `
+              <a href="${href}" class="mega-featured-link">
+                <span class="mega-featured-title">${label} Solution &rsaquo;</span>
+              </a>`;
+          }
         }
       });
     });
