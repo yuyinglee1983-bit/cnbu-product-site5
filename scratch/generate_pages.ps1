@@ -1375,13 +1375,13 @@ $raxBody = @"
   gap: 6px;
 }
 .raxel-sub-main {
-  font-size: 17px;
+  font-size: 26px;
   font-weight: 500;
   color: rgba(255,255,255,.85);
   letter-spacing: -.01em;
 }
 .raxel-sub-accent {
-  font-size: 16px;
+  font-size: 26px;
   color: rgba(255,255,255,.6);
   font-style: italic;
 }
@@ -1667,8 +1667,7 @@ $raxBody = @"
       <p class="raxel-sub-main">Designed for mid-size enterprises &middot; Local deployment &middot; Full governance</p>
       <p class="raxel-sub-accent">Your data. Your infrastructure. Your AI advantage.</p>
     </div>
-    <p class="raxel-keywords">On-Premises &middot; Data Sovereignty &middot; Ready Out of the Box</p>
-  </div>
+      </div>
 </div>
 </section>
 
