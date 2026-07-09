@@ -687,37 +687,124 @@ $aboutPresenceBody = @"
         <img src="https://statics.senaonetworks.com/wp-content/uploads/2025/08/29152816/senao-map-2025_en-1.png" alt="Senao Networks Global Presence Map" style="max-width:100%; margin:0 auto;">
       </div>
     </div>
-    <div class="content-grid">
-      <div class="content-body">
-        <h2>Senao Networks Global Presence &amp; Subsidiaries</h2>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:24px;">
-          <div>
-            <h3 style="margin-top:0;">Taiwan (HQ &amp; Manufacturing)</h3>
-            <p><strong>Senao Networks, Inc.</strong><br>No. 500, Fuxing 3rd Rd., Guishan Dist., Taoyuan City 333, Taiwan<br>Tel: +886-3-3289289</p>
-          </div>
-          <div>
-            <h3 style="margin-top:0;">United States (R&amp;D &amp; Sales)</h3>
-            <p><strong>Senao Networks USA, Inc.</strong><br>860 N McCarthy Blvd Ste 200, Milpitas, CA 95035, USA<br>Tel: +1-408-943-8080</p>
-          </div>
-          <div>
-            <h3 style="margin-top:0;">Japan Office (Business Development)</h3>
-            <p><strong>Senao Networks Japan</strong><br>Tokyo, Japan<br>Email: sales-jp@senao-networks.com</p>
-          </div>
-          <div>
-            <h3 style="margin-top:0;">India R&amp;D Center (Software Engineering)</h3>
-            <p><strong>Senao Networks India Pvt. Ltd.</strong><br>Bangalore, India<br>Email: support-in@senao-networks.com</p>
-          </div>
+    <div>
+      <style>
+      .loc-card { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 32px; padding: 28px 32px; border-radius: 14px; background: #fff; border: 1.5px solid #edf0f5; transition: transform .32s cubic-bezier(.4,0,.2,1), box-shadow .32s cubic-bezier(.4,0,.2,1), border-color .32s ease; }
+      .loc-card:hover { transform: translateY(-8px); box-shadow: 0 16px 48px rgba(0,50,120,.12), 0 4px 12px rgba(0,50,120,.07); border-color: rgba(0,94,184,.25); }
+      @media(max-width:860px){ .loc-card { grid-template-columns: 1fr; } }
+      .loc-info { list-style:none; padding:0; margin:0; }
+      .loc-info li { display: flex; gap: 14px; align-items: flex-start; padding: 6px 0; font-size: 14px; color: #444; border-bottom: 1px solid #f0f2f5; }
+      .loc-info li:last-child { border-bottom: none; }
+      .loc-info .lbl { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #999; min-width: 34px; padding-top: 2px; flex-shrink: 0; }
+      </style>
+
+      <h2 style="font-size:26px; font-weight:700; color:#1a1a1a; text-align:left; display:table; border-bottom:3px solid #f5a623; padding-bottom:10px; margin-bottom:48px;">
+        Senao Networks Global Presence &amp; Subsidiaries
+      </h2>
+
+      <!-- Taiwan Headquarters -->
+      <div class="loc-card">
+        <div>
+          <p style="color:#005bac; font-weight:700; font-size:15px; margin-bottom:6px;">Taiwan (Headquarters)</p>
+          <h3 style="font-size:22px; font-weight:800; color:#1a1a1a; margin-bottom:20px;">Senao Networks Inc.</h3>
+          <ul class="loc-info">
+            <li><span class="lbl">Address</span><span>No. 500, Fuxing 3rd Rd., Guishan Dist.,<br>Taoyuan City 333001, Taiwan</span></li>
+            <li><span class="lbl">Phone</span><span>+886-3-3289289</span></li>
+            <li><span class="lbl">Fax</span><span>+886-3-396-2222</span></li>
+          </ul>
+        </div>
+        <div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.8!2d121.3!3d25.06!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z6b6N5bGx5Y2A5b6M5YWo5LiJ6Lev500!5e0!3m2!1szh-TW!2stw!4v1"
+            width="100%" height="320" style="border:0; border-radius:4px; display:block;"
+            allowfullscreen loading="lazy">
+          </iframe>
         </div>
       </div>
-      <div>
-        <div class="sidebar-card">
-          <h4>Global Network</h4>
-          <ul>
-            <li>R&amp;D Centers: 2</li>
-            <li>Production Sites: 1</li>
-            <li>Sales Hubs: 4</li>
-            <li>Global Logistics support</li>
+
+      <!-- Taiwan Nangang R&D -->
+      <div class="loc-card">
+        <div>
+          <p style="color:#005bac; font-weight:700; font-size:15px; margin-bottom:6px;">Taiwan (Nangang R&amp;D Center)</p>
+          <h3 style="font-size:22px; font-weight:800; color:#1a1a1a; margin-bottom:20px;">Senao Networks Inc.</h3>
+          <ul class="loc-info">
+            <li><span class="lbl">Address</span><span>10F, Building B, No. 209, Sec. 1, Nangang Rd.,<br>Taipei City 115018, Taiwan</span></li>
+            <li><span class="lbl">Phone</span><span>+886-2-2786-2986</span></li>
           </ul>
+        </div>
+        <div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.5!2d121.6!3d25.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQua5kiwgTm8uIDIwOSDljZfmuqbot69kuIHmqZ8!5e0!3m2!1szh-TW!2stw!4v1"
+            width="100%" height="320" style="border:0; border-radius:4px; display:block;"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- USA -->
+      <div class="loc-card">
+        <div>
+          <p style="color:#005bac; font-weight:700; font-size:15px; margin-bottom:6px;">USA (Sales &amp; Technical Support)</p>
+          <h3 style="font-size:22px; font-weight:800; color:#1a1a1a; margin-bottom:20px;">Senao Networks USA Inc.</h3>
+          <ul class="loc-info">
+            <li><span class="lbl">Address</span><span>860 N McCarthy Blvd Ste 200,<br>Milpitas, CA 95035, USA</span></li>
+          </ul>
+        </div>
+        <div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.0!2d-121.9!3d37.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s860+N+McCarthy+Blvd+%23200!5e0!3m2!1sen!2sus!4v1"
+            width="100%" height="320" style="border:0; border-radius:4px; display:block;"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Japan -->
+      <div class="loc-card">
+        <div>
+          <p style="color:#005bac; font-weight:700; font-size:15px; margin-bottom:6px;">Japan (Sales &amp; Technical Support)</p>
+          <h3 style="font-size:22px; font-weight:800; color:#1a1a1a; margin-bottom:20px;">Senao Networks Japan Inc.</h3>
+          <ul class="loc-info">
+            <li><span class="lbl">Address</span><span>10F, EXPERT TAMACHI,<br>3-6-14 Shibaura, Minato-ku,<br>Tokyo 108-0023, Japan</span></li>
+          </ul>
+        </div>
+        <div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.8!2d139.74!3d35.64!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s10F%2C+EXPERT+TAMACHI!5e0!3m2!1sen!2sjp!4v1"
+            width="100%" height="320" style="border:0; border-radius:4px; display:block;"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- India -->
+      <div class="loc-card">
+        <div>
+          <p style="color:#005bac; font-weight:700; font-size:15px; margin-bottom:6px;">India (Sales, R&amp;D &amp; Operations Center)</p>
+          <h3 style="font-size:22px; font-weight:800; color:#1a1a1a; margin-bottom:20px;">Senao Networks Private Limited</h3>
+          <ul class="loc-info">
+            <li><span class="lbl">Address</span><span>Unit #901, 9th Floor, Gowra Palladium, Hi-Tech City,<br>Hyderabad, Telangana 500081, India</span></li>
+          </ul>
+        </div>
+        <div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.3!2d78.37!3d17.44!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s%23901+Gowra+Palladium!5e0!3m2!1sen!2sin!4v1"
+            width="100%" height="320" style="border:0; border-radius:4px; display:block;"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Emplus (Taiwan, Senao Group) -->
+      <div class="loc-card">
+        <div>
+          <p style="color:#005bac; font-weight:700; font-size:15px; margin-bottom:6px;">Taiwan (Senao Group)</p>
+          <h3 style="font-size:22px; font-weight:800; color:#1a1a1a; margin-bottom:20px;">Emplus Technologies Inc.</h3>
+          <ul class="loc-info">
+            <li><span class="lbl">Address</span><span>10F, Building B, No. 209, Sec. 1, Nangang Rd.,<br>Taipei City 115018, Taiwan</span></li>
+            <li><span class="lbl">Website</span><span><a href="https://www.emplustech.com/" style="color:#005bac;">www.emplustech.com</a></span></li>
+          </ul>
+        </div>
+        <div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.5!2d121.6!3d25.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z115!5e0!3m2!1szh-TW!2stw!4v1"
+            width="100%" height="320" style="border:0; border-radius:4px; display:block;"
+            allowfullscreen loading="lazy">
+          </iframe>
         </div>
       </div>
     </div>
