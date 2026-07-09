@@ -74,8 +74,9 @@ img, video { max-width: 100%; display: block; }
   background: linear-gradient(135deg, var(--navy) 0%, #0d2d5e 100%);
   padding: 80px 0 64px; color: #fff;
 }
-.page-hero h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 800; line-height: 1.1; margin: 10px 0 18px; }
-.page-hero .page-desc { font-size: 20px; color: rgba(255,255,255,.72); max-width: 640px; }
+.page-hero .wrap { max-width: 1380px; }
+.page-hero h1 { font-size: clamp(38px, 5.5vw, 76px); font-weight: 800; line-height: 1.1; margin: 10px 0 18px; }
+.page-hero .page-desc { font-size: 26px; color: rgba(255,255,255,.72); max-width: 1100px; }
 
 /* ── Breadcrumb ────────────────────────────── */
 .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 16px; }

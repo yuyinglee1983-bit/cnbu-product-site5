@@ -84,7 +84,7 @@ function BuildPage($file, $title, $depth, $breadcrumbs, $eyebrow, $h1, $desc, $b
   animation: shimmer 3.5s ease infinite;
 }
 @keyframes shimmer { 0%{background-position:200% center} 100%{background-position:-200% center} }
-.home-hero .sub { font-size: 22px; color: rgba(255,255,255,.65); line-height: 1.75; margin-bottom: 36px; }
+.home-hero .sub { font-size: 26px; color: rgba(255,255,255,.65); line-height: 1.75; margin-bottom: 36px; }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
 /* ════ SOLUTIONS CAROUSEL CSS ════ */
