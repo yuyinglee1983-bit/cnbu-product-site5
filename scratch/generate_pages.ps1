@@ -1351,7 +1351,7 @@ $raxBody = @"
   display: flex;
   flex-direction: column;
   gap: 28px;
-  max-width: 820px;
+  max-width: 1100px;
 }
 /* double-line title */
 .raxel-h1 {
@@ -1376,6 +1376,7 @@ $raxBody = @"
 }
 .raxel-sub-main {
   font-size: 26px;
+  white-space: nowrap;
   font-weight: 500;
   color: rgba(255,255,255,.85);
   letter-spacing: -.01em;
