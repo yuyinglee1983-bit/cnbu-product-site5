@@ -1315,8 +1315,32 @@ $raxBody = @"
 }
 
 /* ── RAXEL Hero Override ─────────────────── */
-.f-card h3 { font-size: 36px !important; white-space: nowrap; }
-.f-card p { font-size: 20px !important; }
+.f-card {
+  background: #f4f7f9 !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+  padding: 32px !important;
+}
+.f-card:hover {
+  transform: none !important;
+}
+.f-card::before {
+  display: none !important;
+}
+.f-card h3 {
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+  color: #1c2b42 !important;
+  margin-bottom: 16px !important;
+  white-space: normal !important;
+}
+.f-card p {
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: #55657e !important;
+}
 
 .raxel-hero {
   padding: 180px 0 171px;
@@ -1695,7 +1719,7 @@ $raxBody = @"
 
 <!-- ════ WHY RAXEL CARDS ════ -->
 <section class="section" style="padding:72px 0;background:#fff;border-bottom:1px solid var(--line)">
-  <div class="wrap" style="max-width: 1440px;">
+  <div class="wrap">
     <div class="card-grid col3">
       <div class="f-card fu d1">
         <h3>Data Sovereignty</h3>
