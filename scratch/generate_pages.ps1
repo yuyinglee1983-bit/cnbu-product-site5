@@ -1345,6 +1345,7 @@ $raxBody = @"
 .raxel-hero .wrap {
   position: relative;
   z-index: 2;
+  max-width: 1380px;
 }
 .raxel-hero-inner {
   display: flex;
