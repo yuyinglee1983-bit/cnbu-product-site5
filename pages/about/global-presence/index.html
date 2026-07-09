@@ -1,0 +1,131 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Presence | Senao Networks</title>
+<meta name="description" content="Global R&amp;D hubs, business offices, and advanced manufacturing sites serving customers worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/css/styles.css?v=1.1.9">
+<style>
+.content-grid{display:grid;grid-template-columns:2fr 1fr;gap:56px;align-items:start}
+.content-body h2{font-size: 32px;font-weight:800;color:var(--navy);margin-bottom:16px}
+.content-body p{font-size: 18px;color:var(--muted);line-height:1.85;margin-bottom:20px}
+.content-body h3{font-size: 22px;font-weight:700;color:var(--navy);margin:32px 0 12px}
+.sidebar-card{padding:28px;border-radius:14px;background:var(--soft);border:1.5px solid var(--line)}
+.sidebar-card h4{font-size: 13px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.sidebar-card ul{list-style:none}
+.sidebar-card li{padding:8px 0;font-size: 16px;color:#2a3550;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.sidebar-card li:last-child{border-bottom:none}
+.sidebar-card li::before{display:none}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:48px}
+.stat-box{text-align:center;padding:28px 20px;background:var(--soft);border-radius:14px;border:1.5px solid var(--line)}
+.stat-box .n{font-size: 42px;font-weight:800;color:var(--blue);margin-bottom:4px}
+.stat-box .l{font-size: 14px;color:var(--muted)}
+.news-item{padding:28px 0;border-bottom:1px solid var(--line)}
+.news-item:last-child{border-bottom:none}
+.news-meta{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.news-tag{display:inline;font-size: 13px;font-weight:700;color:var(--blue)}
+.news-date{font-size: 14px;color:var(--muted)}
+.news-item h3{font-size: 24px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.news-item p{font-size: 16px;color:var(--muted);line-height:1.7}
+.faq-section{margin-bottom:48px}
+.faq-section-title{font-size: 14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line);padding:24px 0}
+.faq-q{font-size: 18px;font-weight:700;color:var(--navy);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+.faq-q::before{display:none}
+.faq-a{font-size: 16px;color:var(--muted);line-height:1.8;padding-left:36px}
+.dl-table{width:100%;border-collapse:collapse}
+.dl-table th{text-align:left;padding:12px 16px;background:var(--soft);font-size: 12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+.dl-table td{padding:14px 16px;border-bottom:1px solid var(--line);font-size: 16px;color:#2a3550}
+.dl-table tr:hover td{background:#f7f9ff}
+.dl-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:6px;font-size: 15px;font-weight:700;background:rgba(0,94,184,.08);color:var(--blue);text-decoration:none}
+.dl-btn:hover{background:rgba(0,94,184,.16)}
+.dl-cat{display:inline;font-size: 13px;font-weight:700;color:var(--muted)}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.filter-btn{padding:7px 18px;font-size: 15px;font-weight:700;border:none;background:#fff;color:var(--muted);cursor:pointer;transition:all .2s}
+.filter-btn.active,.filter-btn:hover{background:var(--blue);color:#fff;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field.full{grid-column:1/-1}
+.form-field label{font-size: 14px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.form-field input,.form-field select,.form-field textarea{padding:11px 14px;border:1.5px solid var(--line);border-radius:8px;font-size: 16px;font-family:inherit;background:#fff;transition:border-color .2s}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--blue)}
+.ci-card{padding:28px;border-radius:14px;background:var(--soft);border:1.5px solid var(--line)}
+.ci-item{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
+.ci-item:last-child{border-bottom:none}
+.ci-icon{display:none}
+.ci-item h4{font-size: 16px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.ci-item p{font-size: 16px;color:var(--muted);line-height:1.6}
+.contact-grid{display:grid;grid-template-columns:3fr 2fr;gap:56px;align-items:start}
+@media(max-width:860px){.content-grid{grid-template-columns:1fr}.stat-row{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-root="../../../">
+<header id="site-header"></header>
+<main>
+<section class="page-hero">
+  <div class="wrap fu">
+    <nav class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../../pages/about/index.html">About</a><span class="sep">&rsaquo;</span><span>Global Presence</span></nav>
+    <h1>Global Presence</h1>
+    <p class="page-desc">Global R&amp;D hubs, business offices, and advanced manufacturing sites serving customers worldwide.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap fu">
+    <div style="margin-bottom: 48px;">
+      <h2 style="font-size: 31px; font-weight:800; color:var(--navy); margin-bottom:16px;">Global Coverage Map</h2>
+      <div style="background:#eaeff5; border-radius:12px; padding:24px; text-align:center; border:1px solid var(--line);">
+        <img src="https://statics.senaonetworks.com/wp-content/uploads/2025/08/29152816/senao-map-2025_en-1.png" alt="Senao Networks Global Presence Map" style="max-width:100%; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,.08); margin:0 auto;">
+      </div>
+    </div>
+    <div class="content-grid">
+      <div class="content-body">
+        <h2>Senao Networks Global Presence &amp; Subsidiaries</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:24px;">
+          <div>
+            <h3 style="margin-top:0;">Taiwan (HQ &amp; Manufacturing)</h3>
+            <p><strong>Senao Networks, Inc.</strong><br>No. 500, Fuxing 3rd Rd., Guishan Dist., Taoyuan City 333, Taiwan<br>Tel: +886-3-3289289</p>
+          </div>
+          <div>
+            <h3 style="margin-top:0;">United States (R&amp;D &amp; Sales)</h3>
+            <p><strong>Senao Networks USA, Inc.</strong><br>860 N McCarthy Blvd Ste 200, Milpitas, CA 95035, USA<br>Tel: +1-408-943-8080</p>
+          </div>
+          <div>
+            <h3 style="margin-top:0;">Japan Office (Business Development)</h3>
+            <p><strong>Senao Networks Japan</strong><br>Tokyo, Japan<br>Email: sales-jp@senao-networks.com</p>
+          </div>
+          <div>
+            <h3 style="margin-top:0;">India R&amp;D Center (Software Engineering)</h3>
+            <p><strong>Senao Networks India Pvt. Ltd.</strong><br>Bangalore, India<br>Email: support-in@senao-networks.com</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sidebar-card">
+          <h4>Global Network</h4>
+          <ul>
+            <li>R&amp;D Centers: 2</li>
+            <li>Production Sites: 1</li>
+            <li>Sales Hubs: 4</li>
+            <li>Global Logistics support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap"><div class="cta-inner fu">
+    <div class="cta-text"><h2>Ready to Build Your Infrastructure?</h2><p>Our technical consultants will respond within one business day.</p></div>
+    <div class="cta-actions">
+      <a href="../../../pages/support/downloads/index.html" class="btn btn-ghost">Downloads</a>
+      <a href="../../../pages/support/contact-us/index.html" class="btn btn-primary">Contact Us</a>
+    </div>
+  </div></div>
+</section>
+</main>
+<footer id="site-footer"></footer>
+<script src="../../../assets/js/site.js?v=1.2.7"></script>
+</body>
+</html>

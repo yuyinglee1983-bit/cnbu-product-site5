@@ -1,0 +1,309 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>index | Senao Networks</title>
+<meta name="description" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/styles.css?v=1.1.9">
+<style>
+.home-hero {
+  position: relative;
+  min-height: 55vh;
+  padding: 120px 0 80px;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.home-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(0,152,181,.18) 0%, transparent 70%);
+  z-index: 1;
+}
+.hero-video-bg {
+  position: absolute; inset: 0; z-index: 0;
+  overflow: hidden;
+}
+.bg-vid {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+.bg-vid.active {
+  opacity: 1;
+}
+.video-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, #060e1e 0%, #060e1e 20%, rgba(6,14,30,0.85) 35%, transparent 50%);
+  z-index: 1;
+}
+.home-hero .wrap, .home-solutions .wrap { max-width: 1380px; }
+.hero-content { position: relative; z-index: 2; max-width: 1100px; }
+.hero-badge { display:inline-block; font-size: 14px; font-weight: 700; letter-spacing: .08em; color: var(--cyan); margin-bottom: 28px; }
+.hero-badge::before { display:none; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+.home-hero h1 {
+  font-size: clamp(38px, 5.5vw, 76px);
+  font-weight: 800; line-height: 1.08;
+  letter-spacing: -.03em; color: #fff;
+  margin-bottom: 20px;
+}
+.home-hero h1 em {
+  font-style: normal;
+  white-space: nowrap;
+  background: linear-gradient(110deg, #00c2e0 0%, #7fe0ff 45%, #fff 50%, #7fe0ff 55%, #00c2e0 100%);
+  background-size: 400% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3.5s ease infinite;
+}
+@keyframes shimmer { 0%{background-position:200% center} 100%{background-position:-200% center} }
+.home-hero .sub { font-size: 22px; color: rgba(255,255,255,.65); line-height: 1.75; margin-bottom: 36px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ???? SOLUTIONS CAROUSEL CSS ???? */
+.home-solutions { padding: 80px 0; overflow: hidden; background: #fff; }
+.home-solutions .section-title { font-size: 44px; font-weight: 800; color: var(--navy); margin-bottom: 40px; }
+.carousel-container { position: relative; max-width: 100%; margin: 0 auto; display: flex; align-items: center; }
+.carousel-track {
+  display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; padding-bottom: 20px;
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.sol-card {
+  position: relative;
+  flex: 0 0 calc(33.333% - 16px);
+  min-width: 280px;
+  background: #060e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  scroll-snap-align: start;
+  display: block;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding-bottom: 106px;
+}
+.sol-card .img-wrap { width: 100%; aspect-ratio: 16/9; overflow: hidden; display: block; }
+.sol-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.sol-card:hover .img-wrap img { transform: scale(1.05); }
+.sol-card .info-wrap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 50%;
+  background: #060e1e;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(calc(100% - 106px));
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+.sol-card:hover .info-wrap { transform: translateY(0); }
+.sol-card h3 { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.sol-card .learn-more { font-size: 15px; font-weight: 600; color: var(--cyan); margin-top: 0; }
+.carousel-btn {
+  position: absolute; top: 40%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 12px;
+  background: #cbd0d6; border: none;
+  cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.carousel-btn:hover { background: #aab0b8; transform: translateY(-50%) scale(1.05); }
+.carousel-btn svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.prev-btn { left: -60px; }
+.next-btn { right: -60px; }
+@media (max-width: 1360px) {
+  .prev-btn { left: 10px; } .next-btn { right: 10px; }
+}
+@media (max-width: 900px) { .sol-card { flex: 0 0 calc(50% - 12px); } }
+@media (max-width: 600px) { .sol-card { flex: 0 0 100%; } }
+/* ???? SERVICES SECTION CSS ???? */
+.home-services { padding: 80px 0; background: #1e2024; }
+.home-services .wrap { max-width: 1380px; }
+.home-services .section-title { font-size: 44px; font-weight: 800; color: #fff; margin-bottom: 40px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.srv-card {
+  position: relative; aspect-ratio: 16/10; border-radius: 12px; overflow: hidden; text-decoration: none; display: block;
+}
+.srv-card .img-wrap { position: absolute; inset: 0; }
+.srv-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.srv-card:hover .img-wrap img { transform: scale(1.05); }
+.srv-card .overlay-base {
+  position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
+  display: flex; align-items: flex-end; padding: 28px; transition: opacity 0.3s;
+}
+.srv-card .overlay-base h3 { font-size: 26px; font-weight: 800; color: #fff; margin: 0; }
+.srv-card .overlay-hover {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
+  background: rgba(10, 15, 25, 0.95); padding: 28px;
+  display: flex; flex-direction: column; transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.srv-card:hover .overlay-hover { transform: translateY(0); }
+.srv-card:hover .overlay-base { opacity: 0; }
+.srv-card .overlay-hover h3 { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+.srv-card .overlay-hover p { font-size: 16px; color: #b3b8c2; line-height: 1.6; margin-bottom: 16px; }
+.srv-card .overlay-hover .explore { font-size: 15px; font-weight: 600; color: var(--cyan); margin-top: auto; }
+
+.stats-bar {
+  background: var(--navy);
+  display: grid; grid-template-columns: repeat(4,1fr);
+}
+.stat { padding: 48px 24px; border-right: 1px solid rgba(255,255,255,.08); text-align: center; }
+.stat:last-child { border-right: none; }
+.stat-n { font-size: 52px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 8px; }
+.stat-n span { color: var(--cyan); }
+.stat-l { font-size: 12px; color: rgba(255,255,255,.5); letter-spacing: .06em; text-transform: uppercase; }
+
+@media(max-width:960px) {
+  .services-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media(max-width:640px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+</head>
+<body data-root="./">
+<header id="site-header"></header>
+<main>
+<!-- ???? HERO ???? -->
+<section class="home-hero">
+  <div class="hero-video-bg">
+    <video class="bg-vid active" src="./assets/video/bg-hero-1.mp4" style="transform: scaleX(-1);" muted loop playsinline autoplay></video>
+    <video class="bg-vid" src="./assets/video/bg-hero-2.mp4" muted loop playsinline></video>
+    <video class="bg-vid" src="./assets/video/bg-hero-3.mp4" style="object-position: center top;" muted loop playsinline></video>
+    <video class="bg-vid" src="./assets/video/bg-hero-4.mp4" muted loop playsinline></video>
+    <div class="video-overlay"></div>
+  </div>
+  <div class="wrap">
+    <div class="hero-content fu">
+      <h1>SENAO COMPUTING<br><em>your reliable edge AI partner</em></h1>
+      <p class="sub">Senao Networks delivers purpose-built servers, SmartNIC accelerators, and AI platforms<br>engineered for data centers and edge deployments worldwide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ???? SOLUTIONS CAROUSEL ???? -->
+<section class="home-solutions">
+  <div class="wrap">
+    <h2 class="section-title fu">Senao Computing Solution</h2>
+    <div class="carousel-container fu">
+      <button class="carousel-btn prev-btn" id="sol-prev" aria-label="Previous">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="carousel-track" id="solution-track">
+        <a href="./pages/solution/server/index.html" class="sol-card">
+          <div class="img-wrap"><img src="./assets/img/home/solution-6.jpg" alt="Server" loading="lazy"></div>
+          <div class="info-wrap">
+            <h3>Server</h3>
+            <span class="learn-more">Learn More &rarr;</span>
+          </div>
+        </a>
+        <a href="./pages/solution/edge-server/index.html" class="sol-card">
+          <div class="img-wrap"><img src="./assets/img/home/solution-2.jpg" alt="Edge Server" loading="lazy"></div>
+          <div class="info-wrap">
+            <h3>Edge Server</h3>
+            <span class="learn-more">Learn More &rarr;</span>
+          </div>
+        </a>
+        <a href="./pages/solution/smartnic/index.html" class="sol-card">
+          <div class="img-wrap"><img src="./assets/img/home/solution-3.jpg" alt="SmartNIC" loading="lazy"></div>
+          <div class="info-wrap">
+            <h3>SmartNIC</h3>
+            <span class="learn-more">Learn More &rarr;</span>
+          </div>
+        </a>
+        <a href="./pages/solution/network-appliance/index.html" class="sol-card">
+          <div class="img-wrap"><img src="./assets/img/home/solution-4.jpg" alt="Network Appliance" loading="lazy"></div>
+          <div class="info-wrap">
+            <h3>Network Appliance</h3>
+            <span class="learn-more">Learn More &rarr;</span>
+          </div>
+        </a>
+        <a href="./pages/solution/data-center-switch/index.html" class="sol-card">
+          <div class="img-wrap"><img src="./assets/img/home/solution-5.jpg" alt="Data Center Switch" loading="lazy"></div>
+          <div class="info-wrap">
+            <h3>Data Center Switch</h3>
+            <span class="learn-more">Learn More &rarr;</span>
+          </div>
+        </a>
+        <a href="./pages/solution/com-express-module/index.html" class="sol-card">
+          <div class="img-wrap"><img src="./assets/img/home/solution-1.jpg" alt="COM Express Module" loading="lazy"></div>
+          <div class="info-wrap">
+            <h3>COM Express Module</h3>
+            <span class="learn-more">Learn More &rarr;</span>
+          </div>
+        </a>
+      </div>
+      <button class="carousel-btn next-btn" id="sol-next" aria-label="Next">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ???? SERVICES OVERVIEW ???? -->
+<section class="home-services">
+  <div class="wrap fu">
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+      
+      <a href="./pages/services/laboratory/index.html" class="srv-card">
+        <div class="img-wrap"><img src="./assets/img/home/services-1.jpg" alt="Laboratory" loading="lazy"></div>
+        <div class="overlay-base">
+          <h3>Laboratory</h3>
+        </div>
+        <div class="overlay-hover">
+          <h3>Laboratory</h3>
+          <p>Comprehensive testing and compliance certification facilities.</p>
+          <span class="explore">Explore &rarr;</span>
+        </div>
+      </a>
+
+      <a href="./pages/services/technology/index.html" class="srv-card">
+        <div class="img-wrap"><img src="./assets/img/home/services-2.jpg" alt="Technology" loading="lazy"></div>
+        <div class="overlay-base">
+          <h3>Technology</h3>
+        </div>
+        <div class="overlay-hover">
+          <h3>Technology</h3>
+          <p>Advanced engineering and hardware design capabilities.</p>
+          <span class="explore">Explore &rarr;</span>
+        </div>
+      </a>
+
+      <a href="./pages/services/manufacturing/index.html" class="srv-card">
+        <div class="img-wrap"><img src="./assets/img/home/services-3.jpg" alt="Manufacturing" loading="lazy"></div>
+        <div class="overlay-base">
+          <h3>Manufacturing</h3>
+        </div>
+        <div class="overlay-hover">
+          <h3>Manufacturing</h3>
+          <p>Global manufacturing operations with stringent quality control.</p>
+          <span class="explore">Explore &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap"><div class="cta-inner fu">
+    <div class="cta-text"><h2>Ready to Build Your Infrastructure?</h2><p>Our technical consultants will respond within one business day.</p></div>
+    <div class="cta-actions">
+      <a href="./pages/support/downloads/index.html" class="btn btn-ghost">Downloads</a>
+      <a href="./pages/support/contact-us/index.html" class="btn btn-primary">Contact Us</a>
+    </div>
+  </div></div>
+</section>
+</main>
+<footer id="site-footer"></footer>
+<script src="./assets/js/site.js?v=1.2.7"></script>
+</body>
+</html>
