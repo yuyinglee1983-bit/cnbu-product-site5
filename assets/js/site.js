@@ -486,7 +486,7 @@ function initNavbarDropdowns() {
           } else {
             placeholder.innerHTML = `
               <a href="${href}" class="mega-featured-link">
-                <span class="mega-featured-title">${label} Solution &rsaquo;</span>
+                <span class="mega-featured-title">${label} &rsaquo;</span>
               </a>`;
           }
         }
