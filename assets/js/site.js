@@ -294,7 +294,7 @@ function buildHeader() {
         background: #cccccc;
         border-radius: 0;
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
         justify-content: flex-start;
         padding: 20px;
         position: relative;
@@ -305,7 +305,7 @@ function buildHeader() {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%);
+        background: linear-gradient(to bottom, rgba(0,0,0,0.60) 0%, transparent 60%);
         pointer-events: none;
         z-index: 1;
       }
@@ -330,17 +330,17 @@ function buildHeader() {
         display: flex;
         flex-direction: column;
         gap: 16px;
-        align-self: flex-start;
       }
       .mega-pills-title {
         font-size: 15px;
         font-weight: 800;
-        color: #0b1e38;
+        color: #ffffff;
         text-transform: uppercase;
         letter-spacing: .05em;
-        border-bottom: 1.5px solid rgba(0,0,0,0.1);
+        border-bottom: 1.5px solid rgba(255,255,255,0.35);
         padding-bottom: 8px;
         text-align: left;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.4);
       }
       .mega-pills-grid {
         display: flex;
