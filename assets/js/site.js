@@ -75,8 +75,8 @@ const NAV = [
     label: 'Services', href: 'pages/services/index.html',
     children: [
       { label: 'Laboratory',   href: 'pages/services/laboratory/index.html',   image: 'pages/services/jpg/services.jpg' },
-      { label: 'Technology',   href: 'pages/services/technology/index.html' },
-      { label: 'Manufacturing',href: 'pages/services/manufacturing/index.html' },
+      { label: 'Technology',   href: 'pages/services/technology/index.html',   image: 'pages/services/jpg/services.jpg' },
+      { label: 'Manufacturing',href: 'pages/services/manufacturing/index.html', image: 'pages/services/jpg/services.jpg' },
     ]
   },
   {
