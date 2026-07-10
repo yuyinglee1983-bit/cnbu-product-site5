@@ -5,10 +5,10 @@ const NAV = [
   {
     label: 'About', href: 'pages/about/index.html',
     children: [
-      { label: 'About Senao Computing', href: 'pages/about/about-senao-computing/index.html' },
-      { label: 'Global Presence',       href: 'pages/about/global-presence/index.html' },
-      { label: 'Certification',         href: 'pages/about/certification/index.html' },
-      { label: 'ESG',                   href: 'pages/about/esg/index.html' },
+      { label: 'About Senao Computing', href: 'pages/about/about-senao-computing/index.html', image: 'pages/about/buildings.jpeg' },
+      { label: 'Global Presence',       href: 'pages/about/global-presence/index.html',       image: 'pages/about/buildings.jpeg' },
+      { label: 'Certification',         href: 'pages/about/certification/index.html',         image: 'pages/about/buildings.jpeg' },
+      { label: 'ESG',                   href: 'pages/about/esg/index.html',                   image: 'pages/about/buildings.jpeg' },
     ]
   },
   {
