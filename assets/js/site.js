@@ -141,7 +141,7 @@ function buildHeader() {
       }
       rightContent = `
         <a href="${root}${defaultChild.href}" class="mega-featured-link">
-          <span class="mega-featured-title">${defaultChild.label} Solution &rsaquo;</span>
+          <span class="mega-featured-title">${defaultChild.label} &rsaquo;</span>
         </a>`;
     }
 
