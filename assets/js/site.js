@@ -74,7 +74,7 @@ const NAV = [
   {
     label: 'Services', href: 'pages/services/index.html',
     children: [
-      { label: 'Laboratory',   href: 'pages/services/laboratory/index.html' },
+      { label: 'Laboratory',   href: 'pages/services/laboratory/index.html',   image: 'pages/services/jpg/services.jpg' },
       { label: 'Technology',   href: 'pages/services/technology/index.html' },
       { label: 'Manufacturing',href: 'pages/services/manufacturing/index.html' },
     ]
@@ -111,7 +111,8 @@ function buildHeader() {
     const defaultChild = item.children && item.children[0] ? item.children[0] : { label: item.label, href: item.href };
     const dropHTML = item.children ? item.children.map((c, idx) => {
       const itemsAttr = c.items ? ` data-items='${JSON.stringify(c.items)}'` : '';
-      return `<a class="mega-menu-link${idx === 0 ? ' active' : ''}" href="${root}${c.href}" data-href="${root}${c.href}" data-label="${c.label}"${itemsAttr}>${c.label}</a>`;
+      const imageAttr = c.image ? ` data-image="${root}${c.image}"` : '';
+      return `<a class="mega-menu-link${idx === 0 ? ' active' : ''}" href="${root}${c.href}" data-href="${root}${c.href}" data-label="${c.label}"${itemsAttr}${imageAttr}>${c.label}</a>`;
     }).join('') : '';
 
     let rightContent = '';
@@ -450,9 +451,19 @@ function initNavbarDropdowns() {
         const itemsData = leftLink.getAttribute('data-items');
         const label = leftLink.getAttribute('data-label');
         const href = leftLink.getAttribute('data-href');
+        const image = leftLink.getAttribute('data-image');
         
         const placeholder = menu.querySelector('.mega-image-placeholder');
         if (placeholder) {
+          // Update background image
+          if (image) {
+            placeholder.style.backgroundImage = `url('${image}')`;
+            placeholder.style.backgroundSize = 'cover';
+            placeholder.style.backgroundPosition = 'center';
+          } else {
+            placeholder.style.backgroundImage = '';
+            placeholder.style.backgroundColor = '#cccccc';
+          }
           if (itemsData) {
             const subItems = JSON.parse(itemsData);
             const pillsHTML = subItems.map(sub =>
