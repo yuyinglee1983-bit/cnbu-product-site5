@@ -317,6 +317,7 @@ function buildHeader() {
         font-size: 18px;
         font-weight: 700;
         text-decoration: none;
+        position: relative;
         z-index: 2;
         width: 100%;
         text-align: left;
@@ -330,6 +331,8 @@ function buildHeader() {
         display: flex;
         flex-direction: column;
         gap: 16px;
+        position: relative;
+        z-index: 2;
       }
       .mega-pills-title {
         font-size: 15px;
