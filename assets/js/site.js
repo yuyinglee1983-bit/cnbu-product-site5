@@ -82,9 +82,9 @@ const NAV = [
   {
     label: 'News', href: 'pages/news/index.html',
     children: [
-      { label: 'News',   href: 'pages/news/news/index.html' },
-      { label: 'Events', href: 'pages/news/events/index.html' },
-      { label: 'Blog',   href: 'pages/news/blog/index.html' },
+      { label: 'News',   href: 'pages/news/news/index.html',   image: 'pages/news/news.jpg' },
+      { label: 'Events', href: 'pages/news/events/index.html', image: 'pages/news/news.jpg' },
+      { label: 'Blog',   href: 'pages/news/blog/index.html',   image: 'pages/news/news.jpg' },
     ]
   },
   {
