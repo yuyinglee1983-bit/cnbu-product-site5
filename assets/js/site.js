@@ -68,7 +68,7 @@ const NAV = [
   {
     label: 'AI Hub', href: 'pages/ai-hub/index.html',
     children: [
-      { label: 'RAXEL AI', href: 'pages/ai-hub/raxel-ai/index.html' },
+      { label: 'RAXEL AI', href: 'pages/ai-hub/raxel-ai/index.html', image: 'pages/ai-hub/raxel-ai/raxel.jpg' },
     ]
   },
   {
@@ -115,6 +115,7 @@ function buildHeader() {
     }).join('') : '';
 
     let rightContent = '';
+    let placeholderStyle = '';
     if (defaultChild.items) {
       const pillsHTML = defaultChild.items.map(sub =>
         `<a href="${root}${sub.href}" class="mega-pill-btn">${sub.label}</a>`
@@ -124,7 +125,13 @@ function buildHeader() {
           <div class="mega-pills-title">${defaultChild.label}</div>
           <div class="mega-pills-grid">${pillsHTML}</div>
         </div>`;
+      if (defaultChild.image) {
+        placeholderStyle = `background-image:url('${root}${defaultChild.image}');background-size:cover;background-position:center;background-color:#111;`;
+      }
     } else {
+      if (defaultChild.image) {
+        placeholderStyle = `background-image:url('${root}${defaultChild.image}');background-size:cover;background-position:center;background-color:#111;`;
+      }
       rightContent = `
         <a href="${root}${defaultChild.href}" class="mega-featured-link">
           <span class="mega-featured-title">${defaultChild.label} Solution &rsaquo;</span>
@@ -141,7 +148,7 @@ function buildHeader() {
               ${dropHTML}
             </div>
             <div class="mega-menu-right">
-              <div class="mega-image-placeholder">
+              <div class="mega-image-placeholder" style="${placeholderStyle}">
                 ${rightContent}
               </div>
             </div>
@@ -285,10 +292,18 @@ function buildHeader() {
         padding: 20px;
         position: relative;
         overflow: hidden;
-        transition: background-color 0.2s ease;
+        transition: filter 0.2s ease;
+      }
+      .mega-image-placeholder::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%);
+        pointer-events: none;
+        z-index: 1;
       }
       .mega-image-placeholder:hover {
-        background: #b3b3b3;
+        filter: brightness(0.88);
       }
       .mega-featured-link {
         color: #ffffff;

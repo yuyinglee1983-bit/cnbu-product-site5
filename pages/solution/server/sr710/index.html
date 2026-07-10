@@ -1,40 +1,314 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SR710 | Senao Networks</title>
-<meta name="description" content="Standard dual-socket computing platform optimized for CPU-intensive virtualization.">
+<title>SR710 High-Density Server | Senao Networks</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+TC:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../../assets/css/styles.css?v=1.1.9">
+<style>
+/* ── Hero ── */
+.pd-hero{background:#fff;padding:0;overflow:hidden;position:relative;border-bottom:1px solid var(--line)}
+.pd-hero .wrap{max-width:1380px}
+.pd-hero::before{content:"";position:absolute;top:-20%;right:-5%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,94,184,.06),transparent 65%);pointer-events:none}
+.pd-hero-inner{display:grid;grid-template-columns:1fr 1.1fr;min-height:460px;align-items:center;gap:0}
+.pd-hero-text{padding:64px 48px 64px 0;position:relative;z-index:2}
+.pd-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:20px;font-size:14px;color:var(--muted)}
+.pd-breadcrumb a{color:var(--blue);transition:color .15s}
+.pd-breadcrumb a:hover{color:var(--cyan)}
+.pd-breadcrumb .sep{color:var(--line)}
+.pd-eyebrow{display:none}
+.pd-hero-text h1{font-size:clamp(36px,5.5vw,44px);font-weight:800;line-height:1.12;letter-spacing:-.03em;color:var(--navy);margin-bottom:10px}
+.pd-tagline{font-size:16px;font-weight:600;color:var(--blue);letter-spacing:-.01em;margin-bottom:16px}
+.pd-hero-text .pd-desc{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:28px;max-width:440px}
+.pd-tags{display:flex;flex-wrap:wrap;gap:8px}
+.pd-tag{padding:4px 12px;border:1px solid rgba(26,111,196,.2);border-radius:100px;font-size:14px;font-weight:600;color:var(--blue);background:rgba(26,111,196,.06);letter-spacing:.02em}
+.pd-hero-img{position:relative;display:flex;align-items:center;justify-content:center;padding:40px 0 40px 40px;height:100%}
+.pd-hero-img::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(26,111,196,.04) 0%,transparent 70%);pointer-events:none}
+.pd-img-frame{position:relative;width:100%;max-width:600px}
+.pd-img-frame img{width:100%;height:auto;max-height:380px;object-fit:contain;display:block;filter:drop-shadow(0 8px 20px rgba(11,30,56,.1))}
+/* ── Specs ── */
+.pd-spec{background:linear-gradient(180deg,#060e1e 0%,#0b1e38 100%);padding:64px 0}
+.pd-spec .section-title{color:#fff;margin-bottom:36px}
+.pd-spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;background:transparent;border:none;border-radius:0;overflow:visible}
+.pd-spec-item{padding:26px;border:1.5px solid var(--line);border-radius:12px;background:#fff;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.pd-spec-item::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#005EB8,#00c2e0);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.pd-spec-item:hover{border-color:#005EB8;box-shadow:0 16px 40px rgba(0,94,184,.1);transform:translateY(-4px)}
+.pd-spec-item:hover::before{transform:scaleX(1)}
+.pd-spec-label{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#005eb8;margin-bottom:8px}
+.pd-spec-value{font-size:16px;font-weight:700;color:var(--navy);line-height:1.4}
+/* ── Gallery ── */
+.pd-gallery { background: #fff; padding: 56px 0; }
+.pd-gallery-grid {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+.pd-gallery-cell {
+  flex: 1;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  min-height: 280px;
+}
+.pd-gallery-cell img { width:100%; height:auto; max-height:280px; object-fit:contain; display:block; }
+.pd-gallery-video {
+  flex: 1.6;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+  line-height: 0;
+  font-size: 0;
+  min-height: 280px;
+}
+.pd-gallery-video video { width:100%; height:100%; min-height:260px; max-height:340px; object-fit:cover; display:block; border:none; outline:none; vertical-align:top; }
+/* ── Features ── */
+.pd-features{background:#f0f3f8;padding:64px 0}
+.pd-features .section-title{color:var(--navy);margin-bottom:36px}
+.pd-feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.pd-feat-card{padding:26px;border:1.5px solid var(--line);border-radius:12px;background:#fff;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.pd-feat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#005EB8,#00c2e0);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.pd-feat-card:hover{border-color:#005EB8;box-shadow:0 16px 40px rgba(0,94,184,.1);transform:translateY(-4px)}
+.pd-feat-card:hover::before{transform:scaleX(1)}
+.pd-feat-card h4{font-size:22px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.pd-feat-card p{font-size:16px;line-height:1.7;color:var(--muted);margin:0}
+/* ── Unboxing Video ── */
+.pd-video{background:#fff;padding:72px 0;border-top:1px solid var(--line)}
+.pd-unboxing-inner{
+  display:grid;
+  grid-template-columns:1fr 1.6fr;
+  gap:48px;
+  align-items:center;
+  max-width:1100px;
+  margin:0 auto;
+}
+.pd-unboxing-text{}
+.pd-unboxing-eyebrow{
+  display:inline-block;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--blue);
+  margin-bottom:16px;
+}
+.pd-unboxing-text h2{
+  font-size:36px;
+  font-weight:800;
+  color:var(--navy);
+  line-height:1.18;
+  margin-bottom:16px;
+}
+.pd-unboxing-text p{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--muted);
+  max-width:340px;
+}
+.pd-unboxing-media{
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:0 12px 40px rgba(11,30,56,.10);
+  background:#000;
+}
+.pd-unboxing-media video{
+  width:100%;
+  height:auto;
+  display:block;
+  max-height:460px;
+  object-fit:cover;
+}
+@media(max-width:860px){
+  .pd-unboxing-inner{grid-template-columns:1fr;gap:28px}
+  .pd-unboxing-text p{max-width:100%}
+}
+/* Business Value */
+.pd-bv{padding:72px 0;background:linear-gradient(180deg,#f4f7fb 0%,#fff 100%);border-bottom:1px solid var(--line)}
+.pd-bv-header{text-align:center;margin-bottom:48px}
+.pd-bv-eyebrow{display:block;font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.pd-bv-title{font-size:36px;font-weight:800;color:var(--navy);letter-spacing:-.025em;margin:0}
+.pd-bv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pd-bv-card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:28px 24px 26px;position:relative;overflow:hidden;transition:all .25s cubic-bezier(.4,0,.2,1)}
+.pd-bv-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#005EB8,#00c2e0);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.pd-bv-card:hover{border-color:#005EB8;box-shadow:0 8px 32px rgba(0,94,184,.10);transform:translateY(-3px)}
+.pd-bv-card:hover::before{transform:scaleX(1)}
+.pd-bv-spec{font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin:0 0 8px}
+.pd-bv-desc{font-size:16px;line-height:1.65;color:var(--muted);margin:0}
+@media(max-width:900px){.pd-bv-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.pd-bv-grid{grid-template-columns:1fr}}
+/* Responsive */
+@media(max-width:900px){.pd-hero-inner{grid-template-columns:1fr;min-height:auto}.pd-hero-text{padding:48px 0 28px}.pd-hero-img{padding:0 0 40px}.pd-spec-grid{grid-template-columns:repeat(2,1fr)}.pd-feat-grid{grid-template-columns:1fr}.pd-gallery-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.pd-spec-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body data-root="../../../../">
 <header id="site-header"></header>
 <main>
-<section class="page-hero">
-  <div class="wrap fu">
-    <nav class="breadcrumb">
-      <a href="../../../../index.html">Home</a><span class="sep">&rsaquo;</span>
-      <a href="../../../../pages/solution/index.html">Solution</a><span class="sep">&rsaquo;</span>
-      <a href="../../../../pages/solution/server/index.html">Server</a><span class="sep">&rsaquo;</span>
-      <span>SR710</span>
-    </nav>
-    <h1>SR710 Server Platform</h1>
-    <p class="page-desc">Standard dual-socket computing platform optimized for CPU-intensive virtualization.</p>
+
+<!-- ── Hero ── -->
+<section class="pd-hero">
+<div class="wrap">
+  <div class="pd-hero-inner">
+    <div class="pd-hero-text fu">
+      <nav class="pd-breadcrumb">
+        <a href="../../../../index.html">Home</a><span class="sep">›</span>
+        <a href="../../../../pages/solution/index.html">Solution</a><span class="sep">›</span>
+        <a href="../../../../pages/solution/server/index.html">Server</a><span class="sep">›</span>
+        <span>SR710</span>
+      </nav>
+      <span class="pd-eyebrow">Data Center Server</span>
+      <h1>SR710<br>Scalable 2U Rackmount Server</h1>
+      <p class="pd-tagline">Built for Cloud, Edge, and HPC Workloads</p>
+      <p class="pd-desc">Powered by Dual Intel® Xeon® 6 Scalable processors, SR710 delivers up to 32× DDR5 RDIMM, up to 8× PCIe Gen5 CXL2.0 expansion slots, and up to 24 hot-swap NVMe bays in an OCP DC-MHS modular 2U platform for demanding data center and edge workloads.</p>
+      <div class="pd-tags">
+        <span class="pd-tag">Dual Intel® Xeon® 6</span>
+        <span class="pd-tag">32× DDR5 RDIMM</span>
+        <span class="pd-tag">8× PCIe Gen5 / CXL2.0</span>
+        <span class="pd-tag">24× NVMe</span>
+        <span class="pd-tag">OCP DC-MHS · 2U</span>
+      </div>
+    </div>
+    <div class="pd-hero-img">
+      <div class="pd-img-frame fu">
+        <img src="SR710__F-8_20260512.png" alt="SR710 Data Center Server"/>
+      </div>
+    </div>
   </div>
+</div>
 </section>
-<section class="section"><div class="wrap" style="max-width:860px">
-  <div style="min-height: 350px;"></div>
-</div></section>
+
+<!-- ── Key Features (Dark Background) ── -->
+<section class="pd-spec">
+<div class="wrap">
+  <h2 class="section-title fu">Key Features</h2>
+  <div class="pd-feat-grid">
+    <div class="pd-feat-card fu">
+      <h4>Powered by Intel® Xeon® 6 Processors</h4>
+      <p>Utilizes the latest Intel® Xeon® processors, providing unmatched processing power ideal for intensive applications like HPC, AI workloads, and data analytics. The multi-core architecture ensures maximum processing efficiency, meeting the demands of data-intensive applications.</p>
+    </div>
+    <div class="pd-feat-card fu d1">
+      <h4>Modular DC-MHS Architecture</h4>
+      <p>OCP-ready design allows seamless upgrades and flexible integration with modular components, enabling rapid scaling in diverse environments. Built for data centers looking to future-proof their infrastructure with open and adaptable standards.</p>
+    </div>
+    <div class="pd-feat-card fu d2">
+      <h4>Flexible Expansion with PCIe Gen5 &amp; OCP NIC 3.0</h4>
+      <p>Offers up to 8× PCIe Gen5 slots, including options for dual 25GbE, to enable high-speed networking and connectivity. SR710's compatibility with Senao's SX904 SmartNIC enhances low-latency and high-throughput performance, ideal for SDN, cloud, and virtualized workloads.</p>
+    </div>
+    <div class="pd-feat-card fu d3">
+      <h4>Advanced Security and Management</h4>
+      <p>Features secure boot, IPMI, and Redfish for robust remote management, allowing secure monitoring and configuration. Built-in security protections guard data integrity, making SR710 suitable for sensitive, compliance-focused deployments.</p>
+    </div>
+    <div class="pd-feat-card fu d4">
+      <h4>Efficient Power &amp; Cooling</h4>
+      <p>Equipped with Senao 80 PLUS Titanium power supplies for minimized power usage and operational costs. Advanced cooling system ensures consistent, reliable performance under sustained workloads.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── Gallery ── -->
+<section class="pd-gallery">
+<div class="wrap">
+  <div class="pd-gallery-grid">
+    <div class="pd-gallery-cell">
+      <img src="../sr610/Intel Xeon 6.png" alt="Intel Xeon Processor"/>
+    </div>
+    <div class="pd-gallery-video">
+      <video autoplay muted loop playsinline>
+        <source src="0625(2).mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── Specifications (Light Background) ── -->
+<section class="pd-features">
+<div class="wrap">
+  <h2 class="section-title fu">Specifications</h2>
+  <div class="pd-spec-grid fu">
+    <div class="pd-spec-item"><div class="pd-spec-label">Form Factor</div><div class="pd-spec-value">2U Rackmount (OCP DC-MHS)</div></div>
+    <div class="pd-spec-item"><div class="pd-spec-label">Processors</div><div class="pd-spec-value">Dual Intel® Xeon® 6500P / 6800P / 6700E</div></div>
+    <div class="pd-spec-item"><div class="pd-spec-label">Memory</div><div class="pd-spec-value">Up to 32× DDR5 ECC RDIMM</div></div>
+    <div class="pd-spec-item"><div class="pd-spec-label">Storage</div><div class="pd-spec-value">Up to 24× 2.5" NVMe Hot-Swap</div></div>
+    <div class="pd-spec-item"><div class="pd-spec-label">Expansion</div><div class="pd-spec-value">Up to 8× PCIe Gen5 CXL2.0</div></div>
+    <div class="pd-spec-item"><div class="pd-spec-label">Networking</div><div class="pd-spec-value">OCP NIC 3.0 Expansion</div></div>
+    <div class="pd-spec-item"><div class="pd-spec-label">Power Supply</div><div class="pd-spec-value">1+1 Redundant Titanium PSU</div></div>
+  </div>
+</div>
+</section>
+
+<!-- ── Unboxing Video ── -->
+<section class="pd-video">
+<div class="wrap">
+  <div class="pd-unboxing-inner fu">
+    <div class="pd-unboxing-text">
+      <span class="pd-unboxing-eyebrow">Product Showcase</span>
+      <h2>Senao Networks SR-710 Server Unboxing</h2>
+      <p>Experience the SR-710 enterprise server first-hand. Robust build quality, tool-less design, and enterprise-grade components engineered for demanding data center deployments.</p>
+    </div>
+    <div class="pd-unboxing-media">
+      <video controls preload="auto">
+        <source src="SenaoServer_Unboxing.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── Built-In Business Value ── -->
+<section class="pd-bv">
+<div class="wrap">
+  <div class="pd-bv-header fu">
+    <h2 class="pd-bv-title">Built-In Business Value</h2>
+  </div>
+  <div class="pd-bv-grid">
+    <div class="pd-bv-card fu">
+      <div class="pd-bv-spec">Dual Intel® Xeon® 6</div>
+      <p class="pd-bv-desc">Maximum core density for HPC, AI, and cloud workloads</p>
+    </div>
+    <div class="pd-bv-card fu d1">
+      <div class="pd-bv-spec">32× DDR5 RDIMM</div>
+      <p class="pd-bv-desc">High memory bandwidth for data-intensive applications</p>
+    </div>
+    <div class="pd-bv-card fu d2">
+      <div class="pd-bv-spec">OCP DC-MHS Architecture</div>
+      <p class="pd-bv-desc">Modular, future-proof design with faster component refresh</p>
+    </div>
+    <div class="pd-bv-card fu d3">
+      <div class="pd-bv-spec">8× PCIe Gen5 CXL2.0</div>
+      <p class="pd-bv-desc">Flexible GPU, SmartNIC, and accelerator expansion</p>
+    </div>
+    <div class="pd-bv-card fu d4">
+      <div class="pd-bv-spec">24× NVMe Hot-Swap</div>
+      <p class="pd-bv-desc">High-density, serviceable storage</p>
+    </div>
+    <div class="pd-bv-card fu d5">
+      <div class="pd-bv-spec">DC-SCM BMC + PFR2.0</div>
+      <p class="pd-bv-desc">Enterprise-grade security and remote manageability</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ── CTA ── -->
 <section class="cta-band">
-  <div class="wrap"><div class="cta-inner fu">
-    <div class="cta-text"><h2>Ready to Build Your Infrastructure?</h2><p>Our technical consultants will respond within one business day.</p></div>
+<div class="wrap">
+  <div class="cta-inner fu">
+    <div class="cta-text">
+      <h2>Need More Technical Information?</h2>
+      <p>Our technical consultants will assist you in planning the right server solution for your workload.</p>
+    </div>
     <div class="cta-actions">
-      <a href="../../../../pages/support/downloads/index.html" class="btn btn-ghost">Downloads</a>
       <a href="../../../../pages/support/contact-us/index.html" class="btn btn-primary">Contact Us</a>
     </div>
-  </div></div>
+  </div>
+</div>
 </section>
+
 </main>
 <footer id="site-footer"></footer>
 <script src="../../../../assets/js/site.js?v=1.2.7"></script>
