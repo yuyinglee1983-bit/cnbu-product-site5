@@ -17,6 +17,7 @@ const NAV = [
       {
         label: 'Server',
         href: 'pages/solution/server/index.html',
+        image: 'pages/solution/solution.jpg',
         items: [
           { label: 'SR610', href: 'pages/solution/server/sr610/index.html' },
           { label: 'SR710', href: 'pages/solution/server/sr710/index.html' },
@@ -26,6 +27,7 @@ const NAV = [
       {
         label: 'Edge Server',
         href: 'pages/solution/edge-server/index.html',
+        image: 'pages/solution/solution.jpg',
         items: [
           { label: 'SE110', href: 'pages/solution/edge-server/se110/index.html' },
           { label: 'SE210', href: 'pages/solution/edge-server/se210/index.html' }
@@ -34,6 +36,7 @@ const NAV = [
       {
         label: 'SmartNIC',
         href: 'pages/solution/smartnic/index.html',
+        image: 'pages/solution/solution.jpg',
         items: [
           { label: 'SX904', href: 'pages/solution/smartnic/sx904/index.html' },
           { label: 'SX906', href: 'pages/solution/smartnic/sx906/index.html' }
@@ -42,6 +45,7 @@ const NAV = [
       {
         label: 'Data Center Switch',
         href: 'pages/solution/data-center-switch/index.html',
+        image: 'pages/solution/solution.jpg',
         items: [
           { label: 'SND Series', href: 'pages/solution/data-center-switch/snd-series/index.html' }
         ]
@@ -49,6 +53,7 @@ const NAV = [
       {
         label: 'Edge Appliance',
         href: 'pages/solution/edge-appliance/index.html',
+        image: 'pages/solution/solution.jpg',
         items: [
           { label: 'SC9435B', href: 'pages/solution/edge-appliance/sc9435b/index.html' },
           { label: 'SA9832b', href: 'pages/solution/edge-appliance/sa9832b/index.html' },
@@ -58,6 +63,7 @@ const NAV = [
       {
         label: 'COM Express',
         href: 'pages/solution/com-express/index.html',
+        image: 'pages/solution/solution.jpg',
         items: [
           { label: 'COM7000', href: 'pages/solution/com-express/com7000/index.html' },
           { label: 'CME5100', href: 'pages/solution/com-express/cme5100/index.html' }
