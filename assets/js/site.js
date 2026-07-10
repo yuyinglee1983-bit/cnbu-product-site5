@@ -90,8 +90,8 @@ const NAV = [
   {
     label: 'Support', href: 'pages/support/index.html',
     children: [
-      { label: 'Downloads',  href: 'pages/support/downloads/index.html' },
-      { label: 'FAQ',        href: 'pages/support/faq/index.html' },
+      { label: 'Downloads', href: 'pages/support/downloads/index.html', image: 'pages/support/support.jpg' },
+      { label: 'FAQ',       href: 'pages/support/faq/index.html',       image: 'pages/support/support.jpg' },
     ]
   },
 ];
