@@ -504,11 +504,11 @@ function buildFooter() {
 
   footer.innerHTML = `
     <div class="wrap">
-      <div style="display:grid;grid-template-columns:160px 1fr;gap:56px;padding-bottom:32px;border-bottom:1px solid #e4e8f0;align-items:start">
+      <div style="display:grid;grid-template-columns:220px 1fr;gap:56px;padding-bottom:32px;border-bottom:1px solid #e4e8f0;align-items:start">
 
         <!-- LEFT: Logo image centered -->
         <div style="display:flex;justify-content:center;align-items:center;padding-top:12px;min-height:120px">
-          <img src="${root}assets/img/LOGO5.png" alt="Senao Computing" style="height:90px;display:block">
+          <img src="${root}assets/img/LOGO5.png" alt="Senao Computing" style="width:100%;height:auto;display:block;">
         </div>
 
         <!-- RIGHT: 6 nav columns uniform grid -->
