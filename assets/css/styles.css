@@ -7,7 +7,9 @@
   --line:   #e4e8f0;
   --muted:  #6b7a99;
   --white:  #ffffff;
-  --font:   'Outfit', 'Noto Sans TC', system-ui, sans-serif;
+  --font:        'Roboto', 'Noto Sans TC', system-ui, sans-serif;
+  --font-heading: 'Manrope', 'Noto Sans TC', system-ui, sans-serif;
+  --font-alt:    'Open Sans', 'Noto Sans TC', system-ui, sans-serif;
 }
 
 /* ── Reset ─────────────────────────────────── */
@@ -16,6 +18,8 @@ html { scroll-behavior: smooth; }
 body { font-family: var(--font); color: #1a2236; background: #fff; line-height: 1.6; }
 a { color: inherit; text-decoration: none; }
 img, video { max-width: 100%; display: block; }
+h1, h2, h3, h4 { font-family: var(--font-heading); }
+.alternate-font { font-family: var(--font-alt); }
 
 /* ── Layout ────────────────────────────────── */
 .wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px; }

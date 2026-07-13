@@ -113,12 +113,12 @@ function buildHeader() {
   const header = document.getElementById('site-header');
   if (!header) return;
 
-  // Inject Outfit font
+  // Inject fonts: Roboto (body) + Open Sans (alternate) + Manrope (headings)
   if (!document.getElementById('outfit-font')) {
     const link = document.createElement('link');
     link.id = 'outfit-font';
     link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;700;800&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;700;800&display=swap';
     document.head.appendChild(link);
   }
 
