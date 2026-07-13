@@ -14,20 +14,19 @@
 .feat-box .fi{display:none}
 .feat-box h3{font-size: 22px;font-weight:800;color:var(--navy);margin-bottom:10px}
 .feat-box p{font-size: 16px;color:var(--muted);line-height:1.7}
-.spec-table{width:100%;border-collapse:collapse;font-size: 16px}
-.spec-table th{text-align:left;padding:12px 18px;background:var(--soft);font-size: 14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
-.spec-table td{padding:14px 18px;border-bottom:1px solid var(--line);color:#2a3550}
-.spec-table tr:last-child td{border-bottom:none}
-.spec-table tr:hover td{background:#f7f9ff}
-.two-col{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:start;margin-top:48px}
-.info-block h2{font-size: 36px;font-weight:800;color:var(--navy);margin-bottom:16px;letter-spacing:-.02em}
-.info-block p{font-size: 16px;color:var(--muted);line-height:1.85;margin-bottom:24px}
-.tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.tag{display:inline-block;padding:6px 14px;font-size: 16px; font-weight: 700; color: var(--blue); background: transparent}
-.section-label{font-size: 14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;display:block}
-@media(max-width:960px){.two-col{grid-template-columns:1fr;gap:40px}}
-@media(max-width:860px){.feat-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.feat-grid{grid-template-columns:1fr}}
+/* ── Product Grid ── */
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px}
+.prod-card{position:relative;display:block;background:#fff;border:1.5px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 2px 8px rgba(11,30,56,.04)}
+.prod-card:hover{border-color:#005EB8;box-shadow:0 16px 40px rgba(0,94,184,.12);transform:translateY(-4px)}
+.prod-card .img-wrap{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:#f4f6fa;padding:28px}
+.prod-card .img-wrap img{width:100%;height:100%;object-fit:contain;transition:transform .4s ease}
+.prod-card:hover .img-wrap img{transform:scale(1.05)}
+.prod-card .info-wrap{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 55%,var(--cyan) 100%);padding:22px 24px 24px}
+.prod-card .info-wrap h3{font-size:20px;font-weight:800;color:#fff;letter-spacing:.02em;margin:0 0 12px}
+.prod-card .info-wrap p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.9);margin:0;position:relative;padding-left:14px}
+.prod-card .info-wrap p::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:#fff}
+@media(max-width:860px){.feat-grid{grid-template-columns:repeat(2,1fr)}.prod-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.feat-grid{grid-template-columns:1fr}.prod-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body data-root="../../../">
@@ -42,6 +41,36 @@
 </section>
 <section class="section">
   <div class="wrap fu">
+    <div class="prod-grid">
+      <a href="sr610/index.html" class="prod-card fu">
+        <div class="img-wrap"><img src="sr610/SR610_S1_20241230.png" alt="SR610" loading="lazy"></div>
+        <div class="info-wrap">
+          <h3>SR610</h3>
+          <p>Dual Intel® Xeon® 6 Processors</p>
+          <p>Up to 32× DDR5 ECC RDIMM</p>
+          <p>Up to 12× NVMe Hot-Swap Storage</p>
+        </div>
+      </a>
+      <a href="sr710/index.html" class="prod-card fu d1">
+        <div class="img-wrap"><img src="sr710/SR710__F-8_20260512.png" alt="SR710" loading="lazy"></div>
+        <div class="info-wrap">
+          <h3>SR710</h3>
+          <p>Dual Intel® Xeon® 6 Processors</p>
+          <p>Up to 24× NVMe Hot-Swap Storage</p>
+          <p>Up to 8× PCIe Gen5 Expansion</p>
+        </div>
+      </a>
+      <a href="sr810/index.html" class="prod-card fu d2">
+        <div class="img-wrap"><img src="sr810/SR710G.png" alt="SR810" loading="lazy"></div>
+        <div class="info-wrap">
+          <h3>SR810</h3>
+          <p>Dual Intel® Xeon® 6 Processors</p>
+          <p>Up to 6× PCIe Gen5 GPU Expansion</p>
+          <p>Optimized for Enterprise AI Workloads</p>
+        </div>
+      </a>
+    </div>
+
     <div class="feat-grid">
       <div class="feat-box">
         <div class="fi">⚡</div>
@@ -60,34 +89,6 @@
       </div>
     </div>
 
-    <div class="two-col">
-      <div class="info-block">
-        <span class="section-label">Product Overview</span>
-        <h2>Server Platform</h2>
-        <p>High-density OCP DC-MHS rack servers engineered for data center compute and GPU workloads.</p>
-        <p>Our platforms are designed to address the challenging cooling and computing requirements of enterprise edge, high-throughput telecom gateway nodes, and multi-tenant cloud facilities.</p>
-        <div class="tag-list">
-          <span class="tag">OCP Compliant</span>
-          <span class="tag">Redundant PSU</span>
-          <span class="tag">BIOS Tweaking</span>
-          <span class="tag">PCIe Gen 5</span>
-        </div>
-      </div>
-      <div>
-        <span class="section-label">Technical Specifications</span>
-        <table class="spec-table">
-          <thead><tr><th>Feature</th><th>Specification</th></tr></thead>
-          <tbody>
-            <tr><td>Architecture</td><td>x86-64 / ARM Neoverse</td></tr>
-            <tr><td>Memory Slots</td><td>Up to 32x DDR5 DIMM</td></tr>
-            <tr><td>Storage Options</td><td>NVMe / SATA3 Hot-swap</td></tr>
-            <tr><td>Management</td><td>IPMI 2.0 / Redfish BMC</td></tr>
-            <tr><td>Form Factor</td><td>1U/2U Rackmount or Modular</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    
   </div>
 </section>
 <section class="cta-band">
