@@ -168,7 +168,7 @@ function buildHeader() {
   header.innerHTML = `
     <div class="wrap hd-inner">
       <a class="hd-logo" href="${root}index.html">
-        <img src="${root}assets/img/LOGO5.png" alt="Senao Computing" style="height:46px; display:block;">
+        <img src="${root}assets/img/LOGO6.png" alt="Senao Computing" style="height:46px; display:block;">
       </a>
       <nav class="hd-nav">
         <ul class="nav-list">${navHTML}</ul>
@@ -508,7 +508,7 @@ function buildFooter() {
 
         <!-- LEFT: Logo image centered -->
         <div style="display:flex;justify-content:center;align-items:center;padding-top:12px;min-height:120px">
-          <img src="${root}assets/img/LOGO5.png" alt="Senao Computing" style="width:100%;height:auto;display:block;">
+          <img src="${root}assets/img/LOGO6.png" alt="Senao Computing" style="width:100%;height:auto;display:block;">
         </div>
 
         <!-- RIGHT: 6 nav columns uniform grid -->
