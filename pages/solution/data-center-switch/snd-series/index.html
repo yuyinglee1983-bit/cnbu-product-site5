@@ -28,8 +28,19 @@
 .pd-img-frame{position:relative;width:100%;max-width:600px}
 .pd-img-frame img{width:100%;height:auto;max-height:380px;object-fit:contain;display:block;filter:drop-shadow(0 8px 20px rgba(11,30,56,.1))}
 
+/* ── Specifications ── */
+.pd-features{background:#f0f3f8;padding:64px 0}
+.pd-features .section-title{color:var(--navy);margin-bottom:36px}
+.pd-spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pd-spec-item{padding:26px;border:1.5px solid var(--line);border-radius:12px;background:#fff;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.pd-spec-item::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#005EB8,#00c2e0);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.pd-spec-item:hover{border-color:#005EB8;box-shadow:0 16px 40px rgba(0,94,184,.1);transform:translateY(-4px)}
+.pd-spec-item:hover::before{transform:scaleX(1)}
+.pd-spec-label{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#005eb8;margin-bottom:8px}
+.pd-spec-value{font-size:15px;font-weight:600;color:var(--navy);line-height:1.5}
 /* Responsive */
-@media(max-width:900px){.pd-hero-inner{grid-template-columns:1fr;min-height:auto}.pd-hero-text{padding:48px 0 28px}.pd-hero-img{padding:0 0 40px}}
+@media(max-width:900px){.pd-hero-inner{grid-template-columns:1fr;min-height:auto}.pd-hero-text{padding:48px 0 28px}.pd-hero-img{padding:0 0 40px}.pd-spec-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.pd-spec-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body data-root="../../../../">
@@ -62,10 +73,36 @@
 </div>
 </section>
 
-<!-- ── Blank Space (Template A) ── -->
-<section class="section">
-<div class="wrap" style="max-width:860px">
-  <div style="min-height: 350px;"></div>
+<!-- ── Specifications ── -->
+<section class="pd-features">
+<div class="wrap">
+  <h2 class="section-title fu">Specifications</h2>
+  <div class="pd-spec-grid fu">
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">Switching Fabric</div>
+      <div class="pd-spec-value">Marvell TL7-12.8T Switching Fabric</div>
+    </div>
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">Ports</div>
+      <div class="pd-spec-value">32 × 400G QSFP-DD</div>
+    </div>
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">Processor</div>
+      <div class="pd-spec-value">Intel® Icelake-D SoC &mdash; COMe Type 7 Extended</div>
+    </div>
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">Management</div>
+      <div class="pd-spec-value">BMC Module (AST2600)</div>
+    </div>
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">Power Supply</div>
+      <div class="pd-spec-value">1+1 Redundant 1600W CRPS</div>
+    </div>
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">Cooling</div>
+      <div class="pd-spec-value">5+1 Modularized FANs</div>
+    </div>
+  </div>
 </div>
 </section>
 
