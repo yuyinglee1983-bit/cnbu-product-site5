@@ -118,7 +118,7 @@ function buildHeader() {
     const dropHTML = item.children ? item.children.map((c, idx) => {
       const itemsAttr = c.items ? ` data-items='${JSON.stringify(c.items)}'` : '';
       const imageAttr = c.image ? ` data-image="${root}${c.image}"` : '';
-      return `<a class="mega-menu-link${idx === 0 ? ' active' : ''}" href="${root}${c.href}" data-href="${root}${c.href}" data-label="${c.label}"${itemsAttr}${imageAttr}>${c.label}</a>`;
+      return `<a class="mega-menu-link${idx === 0 ? ' active' : ''}" data-href="${root}${c.href}" data-label="${c.label}"${itemsAttr}${imageAttr}>${c.label}</a>`;
     }).join('') : '';
 
     let rightContent = '';
@@ -277,6 +277,7 @@ function buildHeader() {
         transition: all .2s ease;
         text-decoration: none;
         text-align: left;
+        cursor: default;
       }
       .mega-menu-link:hover, .mega-menu-link.active {
         background: rgba(0, 94, 184, 0.06);
