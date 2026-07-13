@@ -64,34 +64,26 @@
 .home-services { padding: 80px 0; background: #fff; }
 .home-services .wrap { max-width: 1380px; }
 .home-services .section-title { font-size: 44px; font-weight: 800; color: var(--navy); margin-bottom: 40px; }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.srv-card {
-  position: relative; aspect-ratio: 16/10; border-radius: 12px; overflow: hidden; text-decoration: none; display: block;
-}
-.srv-card .img-wrap { position: absolute; inset: 0; }
-.srv-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-.srv-card:hover .img-wrap img { transform: scale(1.05); }
-.srv-card .overlay-base {
-  position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
-  display: flex; align-items: flex-end; padding: 28px; transition: opacity 0.3s;
-}
-.srv-card .overlay-base h3 { font-size: 22px; font-weight: 800; color: #fff; margin: 0; }
-.srv-card .overlay-hover {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
-  background: rgba(10, 15, 25, 0.95); padding: 28px;
-  display: flex; flex-direction: column; transform: translateY(100%);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.srv-card:hover .overlay-hover { transform: translateY(0); }
-.srv-card:hover .overlay-base { opacity: 0; }
-.srv-card .overlay-hover h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 12px; }
-.srv-card .overlay-hover p { font-size: 16px; color: #b3b8c2; line-height: 1.6; margin-bottom: 16px; }
-.srv-card .overlay-hover .explore { font-size: 16px; font-weight: 600; color: var(--cyan); margin-top: auto; }
-@media(max-width:960px) {
-  .services-grid { grid-template-columns: repeat(2,1fr); }
-}
-@media(max-width:640px) {
-  .services-grid { grid-template-columns: 1fr; }
+
+/* ── RAXEL Split (left summary / right video) ── */
+.raxel-split { text-decoration: none; display: block; border-radius: 12px; overflow: hidden; border: 1.5px solid var(--line); transition: all .3s cubic-bezier(.4,0,.2,1); }
+.raxel-split:hover { border-color: #005EB8; box-shadow: 0 16px 40px rgba(0,94,184,.12); }
+.raxel-split-inner { display: grid; grid-template-columns: 2fr 5fr; min-height: 420px; }
+.raxel-split-left { padding: 48px 44px; display: flex; flex-direction: column; justify-content: center; background: #fff; }
+.raxel-split-eyebrow { font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+.raxel-split-left h3 { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1.25; letter-spacing: -.02em; margin-bottom: 16px; }
+.raxel-split-left p { font-size: 16px; line-height: 1.75; color: var(--muted); margin-bottom: 20px; }
+.raxel-split-outline { list-style: none; padding: 0; margin: 0 0 24px; }
+.raxel-split-outline li { font-size: 16px; color: #2a3550; padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; gap: 10px; align-items: flex-start; }
+.raxel-split-outline li:last-child { border-bottom: none; }
+.raxel-split-outline li b { color: var(--navy); }
+.raxel-split-explore { font-size: 16px; font-weight: 700; color: var(--blue); }
+.raxel-split-right { position: relative; overflow: hidden; background: #060e1e; }
+.raxel-split-right video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.raxel-split:hover .raxel-split-right video { transform: scale(1.05); }
+@media(max-width:900px) {
+  .raxel-split-inner { grid-template-columns: 1fr; }
+  .raxel-split-right { min-height: 260px; }
 }
 </style>
 </head>
@@ -107,21 +99,26 @@
 </section>
 <section class="home-services">
   <div class="wrap fu">
-    <div class="services-grid">
-
-      <a href="./raxel-ai/index.html" class="srv-card">
-        <div class="img-wrap"><img src="raxel-ai/raxel.jpg" alt="RAXEL AI" loading="lazy"></div>
-        <div class="overlay-base">
-          <h3>RAXEL AI</h3>
+    <a href="./raxel-ai/index.html" class="raxel-split">
+      <div class="raxel-split-inner">
+        <div class="raxel-split-left">
+          <span class="raxel-split-eyebrow">AI Hub &middot; RAXEL AI</span>
+          <h3>The Enterprise AI Platform Built to Stay On-Premises</h3>
+          <p>Secure, on-premises RAG platform for private enterprise data.</p>
+          <ul class="raxel-split-outline">
+            <li>Data Sovereignty</li>
+            <li>Governance Depth</li>
+            <li>Ready Out of the Box</li>
+          </ul>
+          <span class="raxel-split-explore">Explore RAXEL AI &rarr;</span>
         </div>
-        <div class="overlay-hover">
-          <h3>RAXEL AI</h3>
-          <p>On-premises enterprise RAG platform for secure, private data querying with full citation.</p>
-          <span class="explore">Explore &rarr;</span>
+        <div class="raxel-split-right">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="片頭A.mp4" type="video/mp4">
+          </video>
         </div>
-      </a>
-
-    </div>
+      </div>
+    </a>
   </div>
 </section>
 <section class="cta-band">

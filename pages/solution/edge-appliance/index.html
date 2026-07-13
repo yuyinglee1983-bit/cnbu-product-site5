@@ -7,6 +7,33 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&family=Noto+Sans+TC:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../assets/css/styles.css?v=1.1.9">
+<style>
+.feat-section{background:#f0f3f8;padding:64px 0}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feat-box{padding:32px 28px;border:1.5px solid var(--line);border-radius:14px;background:#fff;transition:border-color .25s,box-shadow .25s}
+.feat-box:hover{border-color:rgba(0,94,184,.35);box-shadow:0 12px 32px rgba(0,50,120,.08)}
+.feat-box .fi{display:none}
+.feat-box h3{font-size: 22px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.feat-box p{font-size: 16px;color:var(--muted);line-height:1.7}
+/* ── Product Cards (Comprehensive Hardware Product Lines style) ── */
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:56px}
+.prod-card{display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--line);border-radius:var(--r);transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;text-decoration:none}
+.prod-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#005EB8,#00c2e0);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:2}
+.prod-card:hover{border-color:#005EB8;box-shadow:0 0 0 1px rgba(0,94,184,.15),0 20px 48px rgba(0,94,184,.12);transform:translateY(-5px)}
+.prod-card:hover::before{transform:scaleX(1)}
+.prod-img{height:200px;background:var(--soft);display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.prod-img img{width:100%;height:100%;object-fit:contain;padding:20px;transition:transform .4s ease}
+.prod-card:hover .prod-img img{transform:scale(1.06)}
+.prod-info{flex:1;padding:20px;display:flex;flex-direction:column}
+.prod-info h3{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.prod-info p{font-size:14px;line-height:1.7;color:var(--muted);margin-bottom:14px;flex:1}
+.prod-tags{display:flex;flex-wrap:wrap;gap:6px}
+.prod-tag{padding:3px 10px;border-radius:4px;background:var(--soft);font-size:14px;font-weight:700;color:var(--navy)}
+@media(max-width:900px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){.feat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.prod-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.feat-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body data-root="../../../">
 <header id="site-header"></header>
@@ -15,12 +42,69 @@
   <div class="wrap fu">
     <nav class="breadcrumb"><a href="../../../index.html">Home</a><span class="sep">&rsaquo;</span><a href="../../../pages/solution/index.html">Solution</a><span class="sep">&rsaquo;</span><span>Edge Appliance</span></nav>
     <h1>Edge Appliance</h1>
-    <p class="page-desc"></p>
+    <p class="page-desc">Purpose-built appliances for SD-WAN, uCPE, and secure edge computing deployments.</p>
   </div>
 </section>
-<section class="section"><div class="wrap" style="max-width:860px">
-  <div style="min-height: 350px;"></div>
-</div></section>
+<section class="section">
+  <div class="wrap fu">
+    <div class="prod-grid">
+      <a href="sc9435b/index.html" class="prod-card fu">
+        <div class="prod-img"><img src="sc9435b/jpg/SC9435b_1.png" alt="SC9435B" loading="lazy"></div>
+        <div class="prod-info">
+          <h3>SC9435B</h3>
+          <p>Secure edge computing appliance for SD-WAN and uCPE deployments, powered by Intel Core Raptor Lake-H.</p>
+          <div class="prod-tags"><span class="prod-tag">Raptor Lake H</span><span class="prod-tag">64GB LPDDR5</span><span class="prod-tag">uCPE</span></div>
+        </div>
+      </a>
+      <a href="sa9832b/index.html" class="prod-card fu d1">
+        <div class="prod-img"><img src="sa9832b/SA9832v2.png" alt="SA9832B" loading="lazy"></div>
+        <div class="prod-info">
+          <h3>SA9832B</h3>
+          <p>Enterprise-grade next-generation firewall platform with high-throughput deep packet inspection.</p>
+          <div class="prod-tags"><span class="prod-tag">Amston Lake x7809C</span><span class="prod-tag">6× 2.5GbE</span><span class="prod-tag">FIPS 140-3</span></div>
+        </div>
+      </a>
+      <a href="edge-scm/index.html" class="prod-card fu d2">
+        <div class="prod-img"></div>
+        <div class="prod-info">
+          <h3>Edge SCM</h3>
+          <p>Edge server management controller card for localized orchestration and metrics.</p>
+          <div class="prod-tags"><span class="prod-tag">BMC</span><span class="prod-tag">Management</span><span class="prod-tag">Add-on Card</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="feat-section">
+  <div class="wrap fu">
+    <div class="feat-grid">
+      <div class="feat-box">
+        <div class="fi">⚡</div>
+        <h3>High Performance</h3>
+        <p>Optimized at the hardware and board level for maximum computing efficiency and throughput.</p>
+      </div>
+      <div class="feat-box">
+        <div class="fi">🛡️</div>
+        <h3>Secure &amp; Reliable</h3>
+        <p>Features hardware Root-of-Trust (RoT), secure boot, and dual-redundant BMC firmware.</p>
+      </div>
+      <div class="feat-box">
+        <div class="fi">🌱</div>
+        <h3>Energy Efficient</h3>
+        <p>Engineered with efficient PSU configurations and automated power-saving states.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap"><div class="cta-inner fu">
+    <div class="cta-text"><h2>Ready to Build Your Infrastructure?</h2><p>Our technical consultants will respond within one business day.</p></div>
+    <div class="cta-actions">
+      <a href="../../../pages/support/downloads/index.html" class="btn btn-ghost">Downloads</a>
+      <a href="../../../pages/support/contact-us/index.html" class="btn btn-primary">Contact Us</a>
+    </div>
+  </div></div>
+</section>
 </main>
 <footer id="site-footer"></footer>
 <script src="../../../assets/js/site.js?v=1.2.7"></script>
