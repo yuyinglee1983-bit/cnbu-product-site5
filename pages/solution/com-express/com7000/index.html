@@ -3,38 +3,108 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>COM7000 | Senao Networks</title>
-<meta name="description" content="Server-grade COM Express Type 7 module designed for rugged edge deployments.">
+<meta name="description" content="Denverton Based COM Express Module for industrial computing and embedded applications.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Sans+TC:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../../assets/css/styles.css?v=1.1.9">
+<style>
+/* ── Hero ── */
+.pd-hero{background:#fff;padding:0;overflow:hidden;position:relative;border-bottom:1px solid var(--line)}
+.pd-hero .wrap{max-width:1380px}
+.pd-hero::before{content:"";position:absolute;top:-20%;right:-5%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,94,184,.06),transparent 65%);pointer-events:none}
+.pd-hero-inner{display:grid;grid-template-columns:1fr 1.1fr;min-height:460px;align-items:center;gap:0}
+.pd-hero-text{padding:64px 48px 64px 0;position:relative;z-index:2}
+.pd-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:20px;font-size:14px;color:var(--muted)}
+.pd-breadcrumb a{color:var(--blue);transition:color .15s}
+.pd-breadcrumb a:hover{color:var(--cyan)}
+.pd-breadcrumb .sep{color:var(--line)}
+.pd-eyebrow{display:none}
+.pd-hero-text h1{font-size:clamp(36px,5.5vw,44px);font-weight:800;line-height:1.12;letter-spacing:-.03em;color:var(--navy);margin-bottom:8px}
+.pd-tagline{font-size:17px;font-weight:500;color:var(--blue);margin-bottom:14px}
+.pd-hero-text .pd-desc{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:28px;max-width:440px}
+.pd-tags{display:flex;flex-wrap:wrap;gap:8px}
+.pd-tag{padding:4px 12px;border:1px solid rgba(26,111,196,.2);border-radius:100px;font-size:14px;font-weight:600;color:var(--blue);background:rgba(26,111,196,.06);letter-spacing:.02em}
+.pd-hero-img{position:relative;display:flex;align-items:center;justify-content:center;padding:40px 0 40px 40px;height:100%}
+.pd-hero-img::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(26,111,196,.04) 0%,transparent 70%);pointer-events:none}
+.pd-img-frame{position:relative;width:100%;max-width:600px}
+.pd-img-frame img{width:100%;height:auto;max-height:380px;object-fit:contain;display:block;filter:drop-shadow(0 8px 20px rgba(11,30,56,.1))}
+/* ── Specifications ── */
+.pd-features{background:#f0f3f8;padding:64px 0}
+.pd-features .section-title{color:var(--navy);margin-bottom:36px}
+.pd-spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pd-spec-item{padding:26px;border:1.5px solid var(--line);border-radius:12px;background:#fff;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.pd-spec-item::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#005EB8,#00c2e0);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.pd-spec-item:hover{border-color:#005EB8;box-shadow:0 16px 40px rgba(0,94,184,.1);transform:translateY(-4px)}
+.pd-spec-item:hover::before{transform:scaleX(1)}
+.pd-spec-label{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#005eb8;margin-bottom:8px}
+.pd-spec-value{font-size:15px;font-weight:600;color:var(--navy);line-height:1.5}
+/* Responsive */
+@media(max-width:900px){.pd-hero-inner{grid-template-columns:1fr;min-height:auto}.pd-hero-text{padding:48px 0 28px}.pd-hero-img{padding:0 0 40px}.pd-spec-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.pd-spec-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body data-root="../../../../">
 <header id="site-header"></header>
 <main>
-<section class="page-hero">
-  <div class="wrap fu">
-    <nav class="breadcrumb">
-      <a href="../../../../index.html">Home</a><span class="sep">&rsaquo;</span>
-      <a href="../../../../pages/solution/index.html">Solution</a><span class="sep">&rsaquo;</span>
-      <a href="../../../../pages/solution/com-express/index.html">COM Express</a><span class="sep">&rsaquo;</span>
-      <span>COM7000</span>
-    </nav>
-    <h1>COM7000</h1>
-    <p class="page-desc"></p>
-  </div>
-</section>
-<section class="section"><div class="wrap" style="max-width:860px">
-  <div style="min-height: 350px;"></div>
-</div></section>
-<section class="cta-band">
-  <div class="wrap"><div class="cta-inner fu">
-    <div class="cta-text"><h2>Ready to Build Your Infrastructure?</h2><p>Our technical consultants will respond within one business day.</p></div>
-    <div class="cta-actions">
-      <a href="../../../../pages/support/downloads/index.html" class="btn btn-ghost">Downloads</a>
-      <a href="../../../../pages/support/contact-us/index.html" class="btn btn-primary">Contact Us</a>
+
+<!-- ── Hero ── -->
+<section class="pd-hero">
+<div class="wrap">
+  <div class="pd-hero-inner">
+    <div class="pd-hero-text fu">
+      <nav class="pd-breadcrumb">
+        <a href="../../../../index.html">Home</a><span class="sep">›</span>
+        <a href="../../../../pages/solution/index.html">Solution</a><span class="sep">›</span>
+        <a href="../../../../pages/solution/com-express/index.html">COM Express</a><span class="sep">›</span>
+        <span>COM7000</span>
+      </nav>
+      <span class="pd-eyebrow">COM Express · Type 6</span>
+      <h1>COM7000</h1>
+      <p class="pd-tagline">Denverton Based COM Express Module</p>
+      <p class="pd-desc">COM Express Module</p>
     </div>
-  </div></div>
+    <div class="pd-hero-img">
+      <div class="pd-img-frame fu">
+        <img src="COM7000_web.jpg" alt="COM7000 COM Express Module"/>
+      </div>
+    </div>
+  </div>
+</div>
 </section>
+
+<!-- ── Specifications ── -->
+<section class="pd-features">
+<div class="wrap">
+  <h2 class="section-title fu">Specifications</h2>
+  <div class="pd-spec-grid fu">
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">Processor</div>
+      <div class="pd-spec-value">Intel® Atom® Processor C3000 SoC (up to 16 cores)</div>
+    </div>
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">Memory</div>
+      <div class="pd-spec-value">2 × SO-DIMM, up to 32GB ECC or non-ECC DDR4</div>
+    </div>
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">PCIe Expansion</div>
+      <div class="pd-spec-value">Up to 16 PCIe Gen3 lanes for flexible expansion</div>
+    </div>
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">Networking</div>
+      <div class="pd-spec-value">Up to 4 × 10GBASE-KR ports</div>
+    </div>
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">Security</div>
+      <div class="pd-spec-value">TPM 2.0</div>
+    </div>
+    <div class="pd-spec-item">
+      <div class="pd-spec-label">Storage</div>
+      <div class="pd-spec-value">eMMC 5.0, up to 128GB</div>
+    </div>
+  </div>
+</div>
+</section>
+
 </main>
 <footer id="site-footer"></footer>
 <script src="../../../../assets/js/site.js?v=1.2.7"></script>
