@@ -113,6 +113,15 @@ function buildHeader() {
   const header = document.getElementById('site-header');
   if (!header) return;
 
+  // Inject Outfit font
+  if (!document.getElementById('outfit-font')) {
+    const link = document.createElement('link');
+    link.id = 'outfit-font';
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;700;800&display=swap';
+    document.head.appendChild(link);
+  }
+
   const navHTML = NAV.map(item => {
     const defaultChild = item.children && item.children[0] ? item.children[0] : { label: item.label, href: item.href };
     const dropHTML = item.children ? item.children.map((c, idx) => {

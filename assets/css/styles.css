@@ -1,4 +1,4 @@
-﻿/* ── Design Tokens ─────────────────────────── */
+/* ── Design Tokens ─────────────────────────── */
 :root {
   --navy:   #0b1e38;
   --blue:   #005EB8;
@@ -7,7 +7,7 @@
   --line:   #e4e8f0;
   --muted:  #6b7a99;
   --white:  #ffffff;
-  --font:   'Google Sans', 'Noto Sans TC', system-ui, sans-serif;
+  --font:   'Outfit', 'Noto Sans TC', system-ui, sans-serif;
 }
 
 /* ── Reset ─────────────────────────────────── */
