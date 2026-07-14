@@ -75,7 +75,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
 
 /* ── Page Hero ─────────────────────────────── */
 .page-hero {
-  background: linear-gradient(135deg, var(--navy) 0%, #0d2d5e 100%);
+  background: radial-gradient(ellipse at center, #7fe0ff 0%, #00c2e0 25%, #0080d6 55%, #0b3f91 100%);
   padding: 80px 0 64px; color: #fff;
 }
 .page-hero .wrap { max-width: 1380px; }
