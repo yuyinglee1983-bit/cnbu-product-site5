@@ -517,7 +517,9 @@ function buildFooter() {
 
         <!-- LEFT: Logo image centered -->
         <div style="display:flex;justify-content:center;align-items:center;padding-top:12px;min-height:120px">
-          <img src="${root}assets/img/LOGO6.png" alt="Senao Computing" style="width:100%;height:auto;display:block;">
+          <a href="https://www.senaonetworks.com/en/" style="display:block;width:100%;">
+            <img src="${root}LOGO3.png" alt="Senao Computing" style="width:100%;height:auto;display:block;">
+          </a>
         </div>
 
         <!-- RIGHT: 6 nav columns uniform grid -->
