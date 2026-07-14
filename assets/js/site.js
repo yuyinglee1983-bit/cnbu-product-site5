@@ -513,11 +513,11 @@ function buildFooter() {
 
   footer.innerHTML = `
     <div class="wrap">
-      <div style="display:grid;grid-template-columns:220px 1fr;gap:56px;padding-bottom:32px;border-bottom:1px solid #e4e8f0;align-items:start">
+      <div style="display:grid;grid-template-columns:220px 1fr;gap:56px;padding-bottom:32px;border-bottom:1px solid #e4e8f0;align-items:center">
 
         <!-- LEFT: Logo image centered -->
-        <div style="display:flex;justify-content:center;align-items:center;padding-top:12px;min-height:120px">
-          <a href="https://www.senaonetworks.com/en/" style="display:block;width:100%;">
+        <div style="display:flex;justify-content:center;align-items:center;min-height:120px">
+          <a href="https://www.senaonetworks.com/en/" style="display:block;width:50%;">
             <img src="${root}LOGO3.png" alt="Senao Computing" style="width:100%;height:auto;display:block;">
           </a>
         </div>
