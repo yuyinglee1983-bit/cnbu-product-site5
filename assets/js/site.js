@@ -5,10 +5,10 @@ const NAV = [
   {
     label: 'About', href: 'pages/about/index.html',
     children: [
-      { label: 'About Senao Computing', href: 'pages/about/about-senao-computing/index.html', image: 'pages/about/buildings.jpeg' },
-      { label: 'Global Presence',       href: 'pages/about/global-presence/index.html',       image: 'pages/about/buildings.jpeg' },
-      { label: 'Certification',         href: 'pages/about/certification/index.html',         image: 'pages/about/buildings.jpeg' },
-      { label: 'ESG',                   href: 'pages/about/esg/index.html',                   image: 'pages/about/buildings.jpeg' },
+      { label: 'About Senao Computing', href: 'pages/about/about-senao-computing/index.html', image: 'pages/about/about-senao-computing/神準科技_LIG5093-S.jpg' },
+      { label: 'Global Presence',       href: 'pages/about/global-presence/index.html',       image: 'pages/about/global-presence/senao-map.png' },
+      { label: 'Certification',         href: 'pages/about/certification/index.html',         image: 'pages/about/certification/vecteezy_businessman-checking-documents-iso-standards-quality_12859725.jpg' },
+      { label: 'ESG',                   href: 'pages/about/esg/index.html',                   image: 'pages/about/esg/vecteezy_hand-holding-with-tree-for-co2-esg-and-net-zero-energy_49573758.jpg' },
     ]
   },
   {
@@ -17,7 +17,9 @@ const NAV = [
       {
         label: 'Server',
         href: 'pages/solution/server/index.html',
-        image: 'pages/solution/solution.jpg',
+        image: 'pages/solution/server/sr610/SR610_S1_20241230.png',
+        imageSize: '220%',
+        imagePosition: 'left bottom',
         items: [
           { label: 'SR610', href: 'pages/solution/server/sr610/index.html' },
           { label: 'SR710', href: 'pages/solution/server/sr710/index.html' },
@@ -27,7 +29,9 @@ const NAV = [
       {
         label: 'Edge Server',
         href: 'pages/solution/edge-server/index.html',
-        image: 'pages/solution/solution.jpg',
+        image: 'pages/solution/edge-server/se210/SE210_S1_20250516.1015.png',
+        imageSize: '220%',
+        imagePosition: 'left bottom',
         items: [
           { label: 'SE110', href: 'pages/solution/edge-server/se110/index.html' },
           { label: 'SE210', href: 'pages/solution/edge-server/se210/index.html' }
@@ -36,7 +40,9 @@ const NAV = [
       {
         label: 'SmartNIC',
         href: 'pages/solution/smartnic/index.html',
-        image: 'pages/solution/solution.jpg',
+        image: 'pages/solution/smartnic/sx906/SX906 (14).png',
+        imageSize: '180%',
+        imagePosition: 'left center',
         items: [
           { label: 'SX904', href: 'pages/solution/smartnic/sx904/index.html' },
           { label: 'SX906', href: 'pages/solution/smartnic/sx906/index.html' }
@@ -45,7 +51,9 @@ const NAV = [
       {
         label: 'Data Center Switch',
         href: 'pages/solution/data-center-switch/index.html',
-        image: 'pages/solution/solution.jpg',
+        image: 'pages/solution/data-center-switch/SND9510-window.png',
+        imageSize: '100%',
+        imagePosition: 'left bottom',
         items: [
           { label: 'SND Series', href: 'pages/solution/data-center-switch/snd-series/index.html' }
         ]
@@ -53,7 +61,9 @@ const NAV = [
       {
         label: 'Edge Appliance',
         href: 'pages/solution/edge-appliance/index.html',
-        image: 'pages/solution/solution.jpg',
+        image: 'pages/solution/edge-appliance/sc9435b/jpg/SC9435b_3.png',
+        imageSize: '140%',
+        imagePosition: 'left bottom',
         items: [
           { label: 'SC9435B', href: 'pages/solution/edge-appliance/sc9435b/index.html' },
           { label: 'SA9832b', href: 'pages/solution/edge-appliance/sa9832b/index.html' },
@@ -63,7 +73,9 @@ const NAV = [
       {
         label: 'COM Express',
         href: 'pages/solution/com-express/index.html',
-        image: 'pages/solution/solution.jpg',
+        image: 'pages/solution/com-express/cme5100/CME5100_3.png',
+        imageSize: '160%',
+        imagePosition: 'left center',
         items: [
           { label: 'COM7000', href: 'pages/solution/com-express/com7000/index.html' },
           { label: 'CME5100', href: 'pages/solution/com-express/cme5100/index.html' }
@@ -127,31 +139,46 @@ function buildHeader() {
     const dropHTML = item.children ? item.children.map((c, idx) => {
       const itemsAttr = c.items ? ` data-items='${JSON.stringify(c.items)}'` : '';
       const imageAttr = c.image ? ` data-image="${root}${c.image}"` : '';
-      return `<a class="mega-menu-link${idx === 0 ? ' active' : ''}" data-href="${root}${c.href}" data-label="${c.label}"${itemsAttr}${imageAttr}>${c.label}</a>`;
+      const imageSizeAttr = ` data-image-size="${c.imageSize || '180%'}"`;
+      const imagePositionAttr = ` data-image-position="${c.imagePosition || 'left bottom'}"`;
+      return `<a class="mega-menu-link${idx === 0 ? ' active' : ''}" data-href="${root}${c.href}" data-label="${c.label}"${itemsAttr}${imageAttr}${imageSizeAttr}${imagePositionAttr}>${c.label}</a>`;
     }).join('') : '';
 
     let rightContent = '';
     let placeholderStyle = '';
     if (defaultChild.items) {
-      const pillsHTML = defaultChild.items.map(sub =>
-        `<a href="${root}${sub.href}" class="mega-pill-btn">${sub.label}</a>`
+      const colorBlocksHTML = defaultChild.items.map(sub =>
+        `<a href="${root}${sub.href}" class="mega-color-block">${sub.label}</a>`
       ).join('');
-      rightContent = `
-        <div class="mega-pills-container">
-          <div class="mega-pills-title">${defaultChild.label}</div>
-          <div class="mega-pills-grid">${pillsHTML}</div>
-        </div>`;
+      rightContent = `<div class="mega-color-grid">${colorBlocksHTML}</div>`;
       if (defaultChild.image) {
-        placeholderStyle = `background-image:url('${root}${defaultChild.image}');background-size:cover;background-position:center;background-color:#111;`;
+        placeholderStyle = `background-image:url('${root}${defaultChild.image}');background-size:${defaultChild.imageSize || '180%'};background-repeat:no-repeat;background-position:${defaultChild.imagePosition || 'left bottom'};background-color:#fff;`;
       }
     } else {
       if (defaultChild.image) {
-        placeholderStyle = `background-image:url('${root}${defaultChild.image}');background-size:cover;background-position:center;background-color:#111;`;
+        placeholderStyle = `background-image:url('${root}${defaultChild.image}');background-size:${defaultChild.imageSize || '180%'};background-repeat:no-repeat;background-position:${defaultChild.imagePosition || 'left bottom'};background-color:#fff;`;
       }
       rightContent = `
         <a href="${root}${defaultChild.href}" class="mega-featured-link">
           <span class="mega-featured-title">${defaultChild.label} &rsaquo;</span>
         </a>`;
+    }
+
+    const SIMPLE_MENUS = ['About', 'AI Hub', 'Services', 'News', 'Support'];
+    if (SIMPLE_MENUS.includes(item.label) && item.children) {
+      const stackHTML = item.children.map(c => `
+        <a class="simple-menu-block" href="${root}${c.href}">${c.label}</a>`).join('');
+      return `
+      <li class="nav-item">
+        <a class="nav-link" href="${root}${item.href}">${item.label}</a>
+        <div class="drop-menu drop-menu-simple">
+          <div class="simple-menu-panel">
+            <div class="simple-menu-stack">
+              ${stackHTML}
+            </div>
+          </div>
+        </div>
+      </li>`;
     }
 
     return `
@@ -214,7 +241,7 @@ function buildHeader() {
       .hd-logo { display:flex; align-items:center; margin-left:-90px; }
       .hd-nav { margin-left:auto; margin-right:56px; }
       .nav-list { list-style:none; display:flex; gap:28px; }
-      .nav-item { position:static; }
+      .nav-item { position:relative; }
       .nav-link {
         display:flex;
         align-items:center;
@@ -263,25 +290,26 @@ function buildHeader() {
         display: grid;
         grid-template-columns: 260px 380px;
         min-height: 340px;
-        background: #fff;
-        border-radius: 0;
+        border-radius: 14px;
         box-shadow: 0 16px 48px rgba(0,30,80,.16);
         overflow: hidden;
-        border: 1px solid #e4e8f0;
+        border: 1px solid rgba(255,255,255,.32);
       }
       .mega-menu-left {
         padding: 16px;
         display: flex;
         flex-direction: column;
         gap: 2px;
-        background: #fff;
+        background: rgba(11,30,56,.45);
+        backdrop-filter: blur(20px) saturate(160%);
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
       }
       .mega-menu-link {
         display: block;
         padding: 10px 14px;
         font-size: 15px;
-        font-weight: 500;
-        color: #4a5568;
+        font-weight: 600;
+        color: #fff;
         border-radius: 8px;
         transition: all .2s ease;
         text-decoration: none;
@@ -289,9 +317,9 @@ function buildHeader() {
         cursor: default;
       }
       .mega-menu-link:hover, .mega-menu-link.active {
-        background: rgba(0, 94, 184, 0.06);
-        color: #005EB8;
-        font-weight: 600;
+        background: rgba(255,106,0,.5);
+        color: #fff;
+        font-weight: 700;
       }
       .mega-menu-right {
         background: #f1f5f9;
@@ -301,7 +329,7 @@ function buildHeader() {
       }
       .mega-image-placeholder {
         flex: 1;
-        background: #cccccc;
+        background: #fff;
         border-radius: 0;
         display: flex;
         align-items: flex-start;
@@ -310,17 +338,6 @@ function buildHeader() {
         position: relative;
         overflow: hidden;
         transition: filter 0.2s ease;
-      }
-      .mega-image-placeholder::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.60) 0%, transparent 60%);
-        pointer-events: none;
-        z-index: 1;
-      }
-      .mega-image-placeholder:hover {
-        filter: brightness(0.88);
       }
       .mega-featured-link {
         color: #ffffff;
@@ -336,50 +353,88 @@ function buildHeader() {
       .mega-featured-link:hover {
         color: #e0f2fe;
       }
-      .mega-pills-container {
-        width: 100%;
+      .mega-color-grid {
         display: flex;
         flex-direction: column;
-        gap: 16px;
-        position: relative;
-        z-index: 2;
+        gap: 10px;
+        width: 100%;
       }
-      .mega-pills-title {
-        font-size: 15px;
-        font-weight: 800;
-        color: #ffffff;
-        text-transform: uppercase;
-        letter-spacing: .05em;
-        border-bottom: 1.5px solid rgba(255,255,255,0.35);
-        padding-bottom: 8px;
-        text-align: left;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      @keyframes megaFadeUp {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-      .mega-pills-grid {
+      .mega-color-block {
         display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .mega-pill-btn {
-        display: inline-flex;
         align-items: center;
-        justify-content: center;
-        padding: 6px 14px;
-        background: #ffffff;
-        border: 1px solid #d1d5da;
-        border-radius: 20px;
-        font-size: 13px;
+        justify-content: flex-start;
+        text-align: left;
+        height: 52px;
+        flex-shrink: 0;
+        padding: 0 22px;
+        border-radius: 12px;
+        background: rgba(0,94,184,.4);
+        border: 1px solid rgba(255,255,255,.3);
+        font-size: 15px;
         font-weight: 700;
-        color: #0b1e38;
+        color: #fff;
         text-decoration: none;
-        transition: all 0.2s ease;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        text-shadow: 0 1px 3px rgba(0,0,0,.3);
+        transition: background .2s ease, border-color .2s ease, transform .2s ease;
+        animation: megaFadeUp .3s ease both;
       }
-      .mega-pill-btn:hover {
-        border-color: var(--blue);
-        color: var(--blue);
-        box-shadow: 0 4px 8px rgba(0,94,184,0.12);
+      .mega-color-block:nth-child(1) { animation-delay: .03s; }
+      .mega-color-block:nth-child(2) { animation-delay: .07s; }
+      .mega-color-block:nth-child(3) { animation-delay: .11s; }
+      .mega-color-block:hover {
+        background: rgba(255,106,0,.5);
+        border-color: rgba(255,106,0,.6);
         transform: translateY(-1px);
+      }
+      /* ── About Dropdown (text list, Framer-style reveal) ── */
+      .simple-menu-panel {
+        width: 260px;
+        background: rgba(11,30,56,.45);
+        backdrop-filter: blur(20px) saturate(160%);
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
+        border-radius: 14px;
+        box-shadow: 0 16px 48px rgba(0,30,80,.20);
+        border: 1px solid rgba(255,255,255,.32);
+        overflow: hidden;
+        padding: 10px;
+      }
+      .simple-menu-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .simple-menu-block {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 13px 16px;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+        background: transparent;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity .3s ease, transform .3s ease, border-color .2s ease, background .2s ease, padding-left .2s ease;
+      }
+      .drop-menu-simple.active .simple-menu-block {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .drop-menu-simple.active .simple-menu-block:nth-child(1) { transition-delay: .03s; }
+      .drop-menu-simple.active .simple-menu-block:nth-child(2) { transition-delay: .07s; }
+      .drop-menu-simple.active .simple-menu-block:nth-child(3) { transition-delay: .11s; }
+      .drop-menu-simple.active .simple-menu-block:nth-child(4) { transition-delay: .15s; }
+      .simple-menu-block:hover {
+        background: rgba(255,106,0,.5);
+        box-shadow: 0 4px 14px rgba(0,30,80,.14);
+        padding-left: 20px;
       }
       .hd-actions { display:flex; align-items:center; gap:24px; }
       .hd-search-wrapper { position:relative; width:40px; height:40px; }
@@ -471,28 +526,28 @@ function initNavbarDropdowns() {
         const label = leftLink.getAttribute('data-label');
         const href = leftLink.getAttribute('data-href');
         const image = leftLink.getAttribute('data-image');
-        
+        const imageSize = leftLink.getAttribute('data-image-size') || '180%';
+        const imagePosition = leftLink.getAttribute('data-image-position') || 'left bottom';
+
         const placeholder = menu.querySelector('.mega-image-placeholder');
         if (placeholder) {
           // Update background image
           if (image) {
             placeholder.style.backgroundImage = `url('${image}')`;
-            placeholder.style.backgroundSize = 'cover';
-            placeholder.style.backgroundPosition = 'center';
+            placeholder.style.backgroundSize = imageSize;
+            placeholder.style.backgroundRepeat = 'no-repeat';
+            placeholder.style.backgroundPosition = imagePosition;
+            placeholder.style.backgroundColor = '#fff';
           } else {
             placeholder.style.backgroundImage = '';
-            placeholder.style.backgroundColor = '#cccccc';
+            placeholder.style.backgroundColor = '#fff';
           }
           if (itemsData) {
             const subItems = JSON.parse(itemsData);
-            const pillsHTML = subItems.map(sub =>
-              `<a href="${root}${sub.href}" class="mega-pill-btn">${sub.label}</a>`
+            const colorBlocksHTML = subItems.map(sub =>
+              `<a href="${root}${sub.href}" class="mega-color-block">${sub.label}</a>`
             ).join('');
-            placeholder.innerHTML = `
-              <div class="mega-pills-container">
-                <div class="mega-pills-title">${label}</div>
-                <div class="mega-pills-grid">${pillsHTML}</div>
-              </div>`;
+            placeholder.innerHTML = `<div class="mega-color-grid">${colorBlocksHTML}</div>`;
           } else {
             placeholder.innerHTML = `
               <a href="${href}" class="mega-featured-link">
